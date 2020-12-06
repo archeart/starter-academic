@@ -68,7 +68,7 @@ user_groups:
 - Researchers
 - Visitors
 ---
-I am currently a Ph.D. candidate at University of California, Los Angeles (UCLA). My research interest is in theoretical computer science. I am very fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. Before coming to UCLA, I obtained my Bachelor's degree at Nanjing Univeristy and Master's degree at Dartmouth college.
+I am currently a Ph.D. candidate at University of California, Los Angeles (UCLA). My research interest is in theoretical computer science. I am very fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. Before coming to UCLA, I obtained my Bachelor's degree at Nanjing University and Master's degree at Dartmouth college.
 
 My {{< staticref "files/cv.pdf" "newtab" >}} curriculum vitae{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, and {{< staticref "files/research-statement.pdf" "newtab" >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
 
