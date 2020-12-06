@@ -15,7 +15,7 @@ subtitle = ""
   page_type = "publication"
   
   # Choose how much pages you would like to display (0 = all pages)
-  count = 5
+  count = 0
   
   # Choose how many pages you would like to offset by
   offset = 0
@@ -65,8 +65,24 @@ subtitle = ""
  
  # CSS class.
  css_class = ""
+
+
 +++
 
-{{% callout note %}}
-Quickly discover relevant content by [filtering publications](./publication/).
-{{% /callout %}}
+## An Optimal Separation of Randomized and Quantum Query Complexity 
+{{< staticref "files/quantum-classical-query.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### A. A. Sherstov, A. A. Storozhenko, and P. Wu
+manuscript., august 2020
+___
+## Near-Optimal Lower Bounds on the Threshold Degree and Sign-rank of AC0
+{{< staticref "files/ac0-thrdeg-signrank.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### A. A. Sherstov, P. Wu
+###### STOC 2019
+*Invited to appear in SIAM Journal on Computing (special issue for STOC 2019)*
+___
+
+## Optimal Interactive Coding For Insertions, Deletions, and Substitutions 
+{{< staticref "files/ins-del.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### A. A. Sherstov, P. Wu
+###### FOCS 2017
+*IEEE Transactions on Information Theory, 65(10):5971–6000, 2019.*
