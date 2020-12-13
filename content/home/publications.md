@@ -72,7 +72,7 @@ subtitle = ""
 ## An Optimal Separation of Randomized and Quantum Query Complexity 
 {{< staticref "files/quantum-classical-query.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### A. A. Sherstov, A. A. Storozhenko, and P. Wu
-manuscript., august 2020
+Manuscript, August 2020
 ___
 ## Near-Optimal Lower Bounds on the Threshold Degree and Sign-rank of AC0
 {{< staticref "files/ac0-thrdeg-signrank.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
@@ -81,7 +81,7 @@ ___
 *Invited to appear in SIAM Journal on Computing (special issue for STOC 2019)*
 ___
 
-## Optimal Interactive Coding For Insertions, Deletions, and Substitutions 
+## Optimal Interactive Coding for Insertions, Deletions, and Substitutions 
 {{< staticref "files/ins-del.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### A. A. Sherstov, P. Wu
 ###### FOCS 2017

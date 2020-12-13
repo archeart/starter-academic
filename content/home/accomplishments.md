@@ -2,10 +2,10 @@
 # Accomplishments widget.
 widget = "accomplishments"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false # Activate this widget? true/false
-weight = 50  # Order that this section will appear.
+active = true # Activate this widget? true/false
+weight = 100  # Order that this section will appear.
 
-title = "Accomplish&shy;ments"
+title = "Awards"
 subtitle = ""
 
 # Date format
@@ -18,25 +18,32 @@ date_format = "Jan 2006"
 #   Leave other parameters empty if not required.
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 
-[[item]]
-  organization = "Coursera"
-  organization_url = "https://www.coursera.org"
-  title = ""
-  url = ""
-  certificate_url = "https://www.coursera.org"
-  date_start = "2018-10-01"
-  date_end = ""
-  description = ""
-
-[[item]]
-  organization = ""
-  organization_url = ""
-  title = "An optimal separation"
-  url = "/files/ins-del.pdf"
-  certificate_url = ""
-  date_start = "2018-10-01"
-  date_end = ""
-  description = "A. A. Sherstov, P. Wu"
-  url_pdf = "/files/ins-del.pdf"
-
+# [[item]]
+#   organization = ""
+#   organization_url = ""
+#   title = ""
+#   url = ""
+#   certificate_url = ""
+#   date_start = "2018-10-01"
+#   date_end = ""
+#   description = "Dissertation Year Fellowship (Graduate Division, UCLA)"
+# 
+# [[item]]
+#   organization = ""
+#   organization_url = ""
+#   title = "Outstanding Graduate Student Research Award (Computer Science Department, UCLA)"
+#   url = ""
+#   certificate_url = ""
+#   date_start = "2018-10-01"
+#   date_end = ""
+#   description = "Outstanding Graduate Student Research Award (Computer Science Department, UCLA)"
+# 
 +++
+
+
+## Outstanding Graduate Student Research Award (Computer Science Department, UCLA)
+June 2020
+## Dissertation Year Fellowship (Graduate Division, UCLA) 
+October 2020
+
+
