@@ -68,11 +68,17 @@ subtitle = ""
 
 
 +++
+## An Optimal "Ain't Over till It's Over" Theorem
+{{< staticref "files/aintover.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### R. Eldan, A. Wigderson, P. Wu
+###### Manuscript
 
+___
 ## An Optimal Separation of Randomized and Quantum Query Complexity 
 {{< staticref "files/quantum-classical-query.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### A. A. Sherstov, A. A. Storozhenko, and P. Wu
-Manuscript, August 2020
+###### STOC 2021
+###### QIP 2021 contributed talk
 ___
 ## Near-Optimal Lower Bounds on the Threshold Degree and Sign-rank of AC0
 {{< staticref "files/ac0-thrdeg-signrank.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}

@@ -6,16 +6,16 @@ title: Pei Wu
 superuser: true
 
 # Role/position
-role: Ph.D. candidate
+role: Postdoc
 
 # Organizations/Affiliations
 organizations:
-- name: Computer Science Department
-- name: University of California, Los Angeles 
+- name: School of Mathematics
+- name: Institute for Advanced Studies
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
-bio: Ph.D. candidate at UCLA
+bio: Ph.D. @ UCLA; postdoc @  IAS
 
 #interests:
 #- theoretical computer science
@@ -71,7 +71,7 @@ user_groups:
 - Researchers
 - Visitors
 ---
-I am a Ph.D. candidate at University of California, Los Angeles (UCLA). I am broadly interested in theoretical computer science. My recent research interests are query complexity, communication complexity and analytic measure of complexity. I am extremely fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. Before coming to UCLA, I obtained my Bachelor's degree at Nanjing University and Master's degree at Dartmouth college.
+I am currently a postdoc at Institute for Advanced Studies. I obtained my Ph.D. degree at University of California, Los Angeles (UCLA). I am broadly interested in theoretical computer science. My recent research interests are query complexity, communication complexity and analysis of boolean functions. I am extremely fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. Before coming to UCLA, I obtained my Bachelor's degree at Nanjing University and Master's degree at Dartmouth college.
 
 My {{< staticref "files/cv.pdf" "newtab" >}} curriculum vitae{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, and {{< staticref "files/research-statement.pdf" "newtab" >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
 

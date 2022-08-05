@@ -93,11 +93,11 @@ email = "pwu@cs.ucla.edu"
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "Engineering VI, 404 Westwood Plaza", city = "Los Angeles", region = "CA", postcode = "90066", country = "United States", country_code = "US"}
+address = {street = "007 Simonyi Hall, Trolley Track Trail", city = "Princeton", region = "NJ", postcode = "08540", country = "United States", country_code = "US"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "34.0697", longitude = "-118.4445"}
+coordinates = {latitude = "40.331460", longitude = "-74.667075"}
 # Directions for visitors to locate you.
 #directions = "Enter Building 1 and take the stairs to Office 200 on Floor 2"
 
