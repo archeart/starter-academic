@@ -39,7 +39,7 @@ bio: Ph.D. @ UCLA; postdoc @  IAS
 social:
 - icon: envelope
   icon_pack: fas
-  link: "mailto: pwu@cs.ucla.edu"
+  link: "mailto: pwu@ias.edu"
   link: '/#contact'  # For a direct email link, use "mailto:test@example.org".
 #- icon: twitter
 #  icon_pack: fab
@@ -60,7 +60,7 @@ social:
   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "pwu@cs.ucla.edu"
+email: "pwu@ias.edu"
 
 # Highlight the author in author lists? (true/false)
 highlight_name: false
