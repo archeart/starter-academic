@@ -68,6 +68,12 @@ subtitle = ""
 
 
 +++
+## The Power of Unentangle Proofs with Non-negative Amplitudes
+{{< staticref "files/qma2.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### F. G. Fernado, P. Wu
+###### Manuscript
+
+___
 ## An Optimal "Ain't Over till It's Over" Theorem
 {{< staticref "files/aintover.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### R. Eldan, A. Wigderson, P. Wu
