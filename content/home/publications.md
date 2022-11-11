@@ -74,9 +74,9 @@ subtitle = ""
 ###### Manuscript
 
 ___
-## An Optimal "Ain't Over till It's Over" Theorem
+## An Optimal "It Ain't Over till It's Over" Theorem
 {{< staticref "files/aintover.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
-[{{<icon name="youtube" pack="fas">}}](https://www.youtube.com/watch?v=NxgZ377Pf8E&t=347s&ab_channel=InstituteforAdvancedStudy)
+[Talk{{<icon name="youtube" pack="fas">}}](https://www.youtube.com/watch?v=NxgZ377Pf8E&t=347s&ab_channel=InstituteforAdvancedStudy)
 ###### R. Eldan, A. Wigderson, P. Wu
 ###### Manuscript
 
