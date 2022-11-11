@@ -68,7 +68,7 @@ subtitle = ""
 
 
 +++
-## The Power of Unentangle Proofs with Non-negative Amplitudes
+## The Power of Unentangled Proofs with Non-negative Amplitudes
 {{< staticref "files/qma2.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, P. Wu
 ###### Manuscript
