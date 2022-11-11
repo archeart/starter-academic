@@ -5,7 +5,7 @@
 widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true # Activate this widget? true/false
-weight = 70  # Order that this section will appear.
+weight = 90  # Order that this section will appear.
 
 title = "Past Talks on Youtube"
 subtitle = ""
@@ -76,4 +76,4 @@ subtitle = ""
 
 ___
 ## Recent Results on Query Complexiy
-###### 2021@Institute for Advanced Study (2 videos) [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=DTCzuyruTLo&t=8s&ab_channel=InstituteforAdvancedStudy) [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=G2IxIBlR8fo&t=1s&ab_channel=InstituteforAdvancedStudy)
+###### 2021@Institute for Advanced Study (Part 1 [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=DTCzuyruTLo&t=8s&ab_channel=InstituteforAdvancedStudy)) (Part 2 [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=G2IxIBlR8fo&t=1s&ab_channel=InstituteforAdvancedStudy))
