@@ -4,10 +4,10 @@
 
 widget = "pages"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = false # Activate this widget? true/false
+active = true # Activate this widget? true/false
 weight = 70  # Order that this section will appear.
 
-title = "Recent & Upcoming Talks"
+title = "Past Talks on Youtube"
 subtitle = ""
 
 [content]
@@ -67,4 +67,13 @@ subtitle = ""
  
  # CSS class.
  css_class = ""
+
+
 +++
+## Black Cats, White Cats, and Schrodinger's Cats
+###### 2021@Institute for Advanced Study [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=QRuHFNoa10k&t=1087s&ab_channel=InstituteforAdvancedStudy)
+
+
+___
+## Recent Results on Query Complexiy
+###### 2021@Institute for Advanced Study (2 videos) [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=DTCzuyruTLo&t=8s&ab_channel=InstituteforAdvancedStudy) [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=G2IxIBlR8fo&t=1s&ab_channel=InstituteforAdvancedStudy)
