@@ -85,8 +85,7 @@ ___
 ###### QIP 2021 contributed talk [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=E4kER24mxq4&ab_channel=MunichCenterforQuantumScience%26Technology)
 
 ___
-## Near-Optimal Lower Bounds on the Threshold Degree and Sign-rank of AC0 {{< staticref "files/ac0-thrdeg-signrank.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
-{{< staticref "files/slides/signrank.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
+## Near-Optimal Lower Bounds on the Threshold Degree and Sign-rank of AC0 {{< staticref "files/ac0-thrdeg-signrank.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}} {{< staticref "files/slides/signrank.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
 ###### A. A. Sherstov, P. Wu
 ###### STOC 2019
 *Invited to appear in SIAM Journal on Computing (special issue for STOC 2019)*
