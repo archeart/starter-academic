@@ -76,8 +76,6 @@ I am broadly interested in theoretical computer science. My recent research inte
 I am currently a postdoc at Institute for Advanced Study, under the supervision of [Prof. Avi Wigderson](https://www.math.ias.edu/avi/home). I obtained my Ph.D. degree at University of California, Los Angeles (UCLA). I am extremely fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. My disseration is {{< staticref "files/dissertation.pdf" "newtab" >}} Communication and Computation {{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}. Before UCLA, I obtained my Bachelor's degree at Nanjing University and Master's degree at Dartmouth college.
 
 My {{< staticref "files/cv.pdf" "newtab" >}} curriculum vitae{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, 
-{{< staticref "files/research.pdf"  >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, 
-{{< staticref "files/teaching.pdf"  >}} teaching statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, 
-and {{< staticref "files/diversity.pdf"  >}} diversity statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
+and {{< staticref "files/research.pdf"  >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
 
 
