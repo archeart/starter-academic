@@ -70,12 +70,12 @@ subtitle = ""
 +++
 ## The Power of Unentangled Proofs with Non-negative Amplitudes {{< staticref "files/qma2.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, P. Wu
-###### To appear in STOC 23
+###### To appear in STOC 2023
 
 ___
 ## An Optimal "It Ain't Over till It's Over" Theorem {{< staticref "files/aintover.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}} {{< staticref "files/slides/aintover.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
 ###### R. Eldan, A. Wigderson, P. Wu
-###### To appear in STOC 23
+###### To appear in STOC 2023
 ###### Talk at IAS [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=NxgZ377Pf8E&t=347s&ab_channel=InstituteforAdvancedStudy)
 
 ___
