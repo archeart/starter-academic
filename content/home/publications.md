@@ -68,9 +68,10 @@ subtitle = ""
 
 
 +++
-## The Power of Unentangled Proofs with Non-negative Amplitudes {{< staticref "files/slides/QMA2.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
+## The Power of Unentangled Proofs with Non-negative Amplitudes {{< staticref "files/qma2.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}} {{< staticref "files/slides/QMA2.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, P. Wu
 ###### STOC 2023
+###### QIP 2024 contributed talk
 ###### Talk at Simons [{{<icon name="video" pack="fas">}}](https://www.youtube.com/watch?v=dV2T_kXi-g4&t=338s&ab_channel=SimonsInstitute)
 
 ___
