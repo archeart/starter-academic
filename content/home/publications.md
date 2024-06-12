@@ -68,6 +68,12 @@ subtitle = ""
 
 
 +++
+## Dimension Independent Disentanglers from Unentanglement and Applications {{< staticref "files/disentangler.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### F. G. Jeronimo, P. Wu
+###### CCC 2024
+
+
+___
 ## The Power of Unentangled Proofs with Non-negative Amplitudes {{< staticref "files/qma2.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}} {{< staticref "files/slides/QMA2.pdf" "newtab" >}}{{<icon name="file-powerpoint" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, P. Wu
 ###### STOC 2023
