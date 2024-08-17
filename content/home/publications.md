@@ -68,6 +68,10 @@ subtitle = ""
 
 
 +++
+## Coherance in Property Testing: Quantum-Classical Separations and Collapses
+###### F. G. Jeronimo, N. Magrafta, P. Wu
+
+___
 ## Dimension Independent Disentanglers from Unentanglement and Applications {{< staticref "files/disentangler.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, P. Wu
 ###### CCC 2024
