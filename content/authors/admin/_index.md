@@ -10,8 +10,8 @@ role: Postdoc
 
 # Organizations/Affiliations
 organizations:
-- name: Department of Computer Science and Applied Math
-- name: Weizmann Institute of Science
+- name: Department of Computer Science 
+- name: Penn State University 
   url: ""
 
 # Short bio (displayed in user profile at end of posts)
@@ -60,7 +60,7 @@ social:
   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "pwu@ias.edu"
+email: "pei.wu@psu.edu"
 
 # Highlight the author in author lists? (true/false)
 highlight_name: false
@@ -71,9 +71,9 @@ user_groups:
 - Researchers
 - Visitors
 ---
-I am broadly interested in theoretical computer science. My recent research interests are query complexity, communication complexity and analysis of boolean functions. 
+I am broadly interested in theoretical computer science. My recent research interests include query complexity and quantum proofs. 
 
-I am currently a postdoc at Weizmann Institute of Science. I obtained my Ph.D. degree at University of California, Los Angeles (UCLA). I am extremely fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. My disseration is {{< staticref "files/dissertation.pdf" "newtab" >}} Communication and Computation {{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}. I also spent two fantastic years as a postdoc member at Institute for Advanced Study, under the supervision of [Prof. Avi Wigderson](https://www.math.ias.edu/avi/home).  Before UCLA, I obtained my Bachelor's degree at Nanjing University and Master's degree at Dartmouth college.
+I held the assistant professor position at the Penn State University. I am looking for students interested in theoretical computer science! If you are interested, feel free to contact me. I obtained my Ph.D. degree at University of California, Los Angeles (UCLA). I am extremely fortunate to have [Prof. Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/) as my advisor. My disseration is {{< staticref "files/dissertation.pdf" "newtab" >}} Communication and Computation {{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}. I spent one year as a postdoc at Weizmann Insituted hosted by [Thomas Vidick](https://https://www.weizmann.ac.il/math/vidick/home),  as well as two fantastic years as a postdoc member at Institute for Advanced Study, under the supervision of [Prof. Avi Wigderson](https://www.math.ias.edu/avi/home).  
 
 My {{< staticref "files/cv.pdf" "newtab" >}} curriculum vitae{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, 
 and {{< staticref "files/research.pdf"  >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
