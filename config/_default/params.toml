@@ -88,16 +88,16 @@ show_related = {book = true, page = false, post = true, project = true, publicat
 ############################
 
 # Enter contact details (optional). To hide a field, clear it to "".
-email = "pwu@ias.edu"
+email = "pei.wu@psu.edu"
 #phone = "888 888 88 88"
 
 # Address
 # For country_code, use the 2-letter ISO code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 )
-address = {street = "007 Simonyi Hall, Trolley Track Trail", city = "Princeton", region = "NJ", postcode = "08540", country = "United States", country_code = "US"}
+address = {street = "315 Westgate Building", city = "State College", region = "PA", postcode = "16802", country = "United States", country_code = "US"}
 
 # Geographic coordinates
 # To get your coordinates, right-click on Google Maps and choose "What's here?". The coords will show up at the bottom.
-coordinates = {latitude = "40.331460", longitude = "-74.667075"}
+coordinates = {latitude = "40.79442", longitude = "-77.86683"}
 # Directions for visitors to locate you.
 #directions = "Enter Building 1 and take the stairs to Office 200 on Floor 2"
 
