@@ -68,7 +68,7 @@ subtitle = ""
 
 
 +++
-## Coherance in Property Testing: Quantum-Classical Separations and Collapses {{< staticref "files/qprop.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+## Coherance in Property Testing: Quantum-Classical Separations and Collapses 
 ###### F. G. Jeronimo, N. Magrafta, J. Slote, P. Wu
 ###### Manuscript
 
