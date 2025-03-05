@@ -12,3 +12,14 @@ header:
   caption: ""
   image: ""
 ---
+
+
+
++++
+title = "List of papers"
+date = 2025-03-15
+draft = false
++++
+
+
+Here is a list of papers to read
