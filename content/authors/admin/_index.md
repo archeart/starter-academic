@@ -39,22 +39,13 @@ bio: Ph.D. @ UCLA; postdoc @  IAS; postdoc @ Weizmann
 social:
 - icon: envelope
   icon_pack: fas
-  link: "mailto: pei.wu@psu.edu"
-  link: '/#contact'  # For a direct email link, use "mailto:test@example.org".
-#- icon: twitter
-#  icon_pack: fab
-#  link: https://twitter.com/GeorgeCushen
+  link: '/#contact'
 - icon: google-scholar
   icon_pack: ai
   link: https://scholar.google.co.uk/citations?user=i152hTQAAAAJ
 - icon: linkedin
   icon_pack: fab
   link: https://linkedin.com/in/pei-wu-44904887/
-#- icon: github
-#  icon_pack: fab
-#  link: https://github.com/gcushen
-# Link to a PDF of your resume/CV from the About widget.
-# To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 - icon: cv
   icon_pack: ai
   link: files/cv.pdf
@@ -78,5 +69,3 @@ I obtained my Ph.D. degree at University of California, Los Angeles (UCLA). I am
 
 My {{< staticref "files/cv.pdf" "newtab" >}} curriculum vitae{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}, 
 and {{< staticref "files/research.pdf"  >}} research statement{{< icon name="file-pdf" pack="fas" >}}{{< /staticref >}}.
-
-
