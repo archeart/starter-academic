@@ -231,6 +231,7 @@ share = false
           <li>Irit Dinur, <a href="https://people.csail.mit.edu/dmoshkov/courses/pcp/pcp-history.pdf">History of PCP</a></li>
           <li>Oded Goldreich, <a href="https://www.wisdom.weizmann.ac.il/~oded/PDF/pt-low.pdf">Low-degree testing note</a></li>
           <li><a href="https://dl.acm.org/doi/10.1145/502090.502098">Hastad's paper</a> on optimal inapproximability results for MAX-3XOR and related problems</li>
+          <li><a href="https://theoryofcomputing.org/articles/v005a008/">Holenstein's paper</a> on parallel repetition</li>
         </ul>
       </div>
     </div>
@@ -346,6 +347,24 @@ share = false
             <td></td>
             <td><a href="/files/teaching/S26/10.%20Inapproximability%20of%20MAX-3XOR.pdf">Note</a></td>
           </tr>
+          <tr>
+            <td>Mar 17</td>
+            <td>Parallel repetition, part I</td>
+            <td><a href="https://theoryofcomputing.org/articles/v005a008/">Holenstein's paper</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mar 19</td>
+            <td>Parallel repetition, part II</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Mar 24</td>
+            <td>Parallel repetition, part III</td>
+            <td></td>
+            <td><a href="/files/teaching/S26/11.%20Parallel%20repetition.pdf">Note</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -363,6 +382,7 @@ share = false
           <li><a href="/files/teaching/S26/8.%20Poly-size%20PCP.pdf">Lecture 8: Poly-size PCP</a></li>
           <li><a href="/files/teaching/S26/9.%20Low-degree%20test.pdf">Lecture 9: Low-degree test</a></li>
           <li><a href="/files/teaching/S26/10.%20Inapproximability%20of%20MAX-3XOR.pdf">Lecture 10: Inapproximability of MAX-3XOR</a></li>
+          <li><a href="/files/teaching/S26/11.%20Parallel%20repetition.pdf">Lecture 11: Parallel repetition</a></li>
         </ul>
       </div>
       <div class="course-card">
