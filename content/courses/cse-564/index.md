@@ -228,10 +228,7 @@ share = false
         <ul>
           <li>[W] Avi Wigderson, <a href="https://www.math.ias.edu/files/mathandcomp.pdf"><em>Mathematics and Computation</em></a></li>
           <li>[O'D] Ryan O'Donnell, <a href="https://www.cs.cmu.edu/~odonnell/papers/Analysis-of-Boolean-Functions-by-Ryan-ODonnell.pdf"><em>Analysis of Boolean Functions</em></a></li>
-          <li>Irit Dinur, <a href="https://people.csail.mit.edu/dmoshkov/courses/pcp/pcp-history.pdf">History of PCP</a></li>
-          <li>Oded Goldreich, <a href="https://www.wisdom.weizmann.ac.il/~oded/PDF/pt-low.pdf">Low-degree testing note</a></li>
-          <li><a href="https://dl.acm.org/doi/10.1145/502090.502098">Hastad's paper</a> on optimal inapproximability results for MAX-3XOR and related problems</li>
-          <li><a href="https://theoryofcomputing.org/articles/v005a008/">Holenstein's paper</a> on parallel repetition</li>
+          <li>[BS] Boaz Barak and David Steurer, <a href="https://www.sumofsquares.org/public/index.html">Proofs, beliefs, and algorithms through the lens of sum-of-squares</a></li>
         </ul>
       </div>
     </div>
@@ -365,6 +362,24 @@ share = false
             <td></td>
             <td><a href="/files/teaching/S26/11.%20Parallel%20repetition.pdf">Note</a></td>
           </tr>
+          <tr>
+            <td>Mar 26</td>
+            <td>Goemans-Williamson algorithms</td>
+            <td></td>
+            <td><a href="/files/teaching/S26/12.%20GW.pdf">Note</a></td>
+          </tr>
+          <tr>
+            <td>Mar 31</td>
+            <td>Sum-of-Squares algorithms, intro</td>
+            <td>[BS] Ch. 1.2. </td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Apr 2</td>
+            <td>Degree-2 SoS algorithms and Grothendieck's inequality</td>
+            <td>[BS] Ch. 2.3. </td>
+            <td><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Note</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -383,6 +398,8 @@ share = false
           <li><a href="/files/teaching/S26/9.%20Low-degree%20test.pdf">Lecture 9: Low-degree test</a></li>
           <li><a href="/files/teaching/S26/10.%20Inapproximability%20of%20MAX-3XOR.pdf">Lecture 10: Inapproximability of MAX-3XOR</a></li>
           <li><a href="/files/teaching/S26/11.%20Parallel%20repetition.pdf">Lecture 11: Parallel repetition</a></li>
+          <li><a href="/files/teaching/S26/12.%20GW.pdf">Lecture 12: Goemans-Williamson algorithms</a></li>
+          <li><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Lecture 13: SoS and quadratic optimization</a></li>
         </ul>
       </div>
       <div class="course-card">
