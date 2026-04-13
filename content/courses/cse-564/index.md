@@ -380,6 +380,12 @@ share = false
             <td>[BS] Ch. 2.3. </td>
             <td><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Note</a></td>
           </tr>
+          <tr>
+            <td>Apr 7</td>
+            <td>Rounding global correlation</td>
+            <td></td>
+            <td><a href="/files/teaching/S26/14.%20rounding%20global%20correlation.pdf">Note</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -400,6 +406,7 @@ share = false
           <li><a href="/files/teaching/S26/11.%20Parallel%20repetition.pdf">Lecture 11: Parallel repetition</a></li>
           <li><a href="/files/teaching/S26/12.%20GW.pdf">Lecture 12: Goemans-Williamson algorithms</a></li>
           <li><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Lecture 13: SoS and quadratic optimization</a></li>
+          <li><a href="/files/teaching/S26/14.%20rounding%20global%20correlation.pdf">Lecture 14: Rounding global correlation</a></li>
         </ul>
       </div>
       <div class="course-card">
