@@ -386,6 +386,18 @@ share = false
             <td></td>
             <td><a href="/files/teaching/S26/14.%20rounding%20global%20correlation.pdf">Note</a></td>
           </tr>
+          <tr>
+            <td>Apr 9</td>
+            <td>Sum-of-Squares lower bound, part I</td>
+            <td>[BS] Ch. 3.2.</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Apr 14</td>
+            <td>Sum-of-Squares lower bound, part II</td>
+            <td>[BS] Ch. 3.2.</td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
     </div>
