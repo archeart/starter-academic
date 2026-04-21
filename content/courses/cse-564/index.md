@@ -398,6 +398,18 @@ share = false
             <td>[BS] Ch. 3.2.</td>
             <td></td>
           </tr>
+          <tr>
+            <td>Apr 16</td>
+            <td>Unique games conjecture and max cut, part I</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Apr 21</td>
+            <td>Unique games conjecture and max cut, part II</td>
+            <td></td>
+            <td><a href="/files/teaching/S26/16.%20UGC%20and%20max%20cut.pdf">Note</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -419,6 +431,7 @@ share = false
           <li><a href="/files/teaching/S26/12.%20GW.pdf">Lecture 12: Goemans-Williamson algorithms</a></li>
           <li><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Lecture 13: SoS and quadratic optimization</a></li>
           <li><a href="/files/teaching/S26/14.%20rounding%20global%20correlation.pdf">Lecture 14: Rounding global correlation</a></li>
+          <li><a href="/files/teaching/S26/16.%20UGC%20and%20max%20cut.pdf">Lecture 16: UGC and max cut</a></li>
         </ul>
       </div>
       <div class="course-card">
