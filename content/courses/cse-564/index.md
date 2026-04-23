@@ -410,6 +410,12 @@ share = false
             <td></td>
             <td><a href="/files/teaching/S26/16.%20UGC%20and%20max%20cut.pdf">Note</a></td>
           </tr>
+          <tr>
+            <td>Apr 23</td>
+            <td>Invariance principle</td>
+            <td></td>
+            <td><a href="/files/teaching/S26/17.%20Invariance%20principle%20and%20MIS.pdf">Note</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -432,6 +438,7 @@ share = false
           <li><a href="/files/teaching/S26/13.%20SoS%20and%20quadratic%20optimization.pdf">Lecture 13: SoS and quadratic optimization</a></li>
           <li><a href="/files/teaching/S26/14.%20rounding%20global%20correlation.pdf">Lecture 14: Rounding global correlation</a></li>
           <li><a href="/files/teaching/S26/16.%20UGC%20and%20max%20cut.pdf">Lecture 16: UGC and max cut</a></li>
+          <li><a href="/files/teaching/S26/17.%20Invariance%20principle%20and%20MIS.pdf">Lecture 17: Invariance principle and MIS</a></li>
         </ul>
       </div>
       <div class="course-card">
