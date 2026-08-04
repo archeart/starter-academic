@@ -68,6 +68,11 @@ subtitle = ""
 
 
 +++
+## Optimal Quantum de Finetti Theorems via Argmax Rounding {{< staticref "files/argmax-dF.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### F. G. Jeronimo, P. Wu, H. Xu
+###### Manuscript, 2026
+
+___
 ## Coherance in Property Testing: Quantum-Classical Separations and Collapses {{< staticref "files/qprop.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, N. Magrafta, J. Slote, P. Wu
 ###### QIP 2025
