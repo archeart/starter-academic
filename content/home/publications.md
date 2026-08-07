@@ -73,6 +73,11 @@ subtitle = ""
 ###### Manuscript, 2026
 
 ___
+## Randomized and Quantum Lifting for One-Way Conservative NOF Model {{< staticref "files/nof-lifting.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
+###### H. Wang, P. Wu
+###### MFCS 2026
+
+___
 ## Coherance in Property Testing: Quantum-Classical Separations and Collapses {{< staticref "files/qprop.pdf" "newtab" >}}{{<icon name="file-pdf" pack="fas">}}{{</staticref>}}
 ###### F. G. Jeronimo, N. Magrafta, J. Slote, P. Wu
 ###### QIP 2025
