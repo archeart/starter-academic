@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Trace It in One Stroke</title>
+<style>
+  :root{
+    --ink:#1C1C22; --sub:#5A5A63; --navy:#27324F; --paper:#F7F5F0;
+    --edge:#8A8F9A; --traced:#2C7B8C; --pen:#B03A6E; --good:#2A7F72;
+    --wall:#B9B4A8; --node:#27324F;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:640px;margin:0 auto;padding:14px 14px 30px;min-height:100vh;display:flex;flex-direction:column}
+  h1{font-size:1.15rem;margin:2px 0 2px;letter-spacing:.2px}
+  .how{font-size:.9rem;color:var(--sub);margin:0 0 10px;line-height:1.35}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .tab{flex:1 1 auto;min-width:0;padding:9px 6px;border:1.5px solid #d8d4ca;background:#fff;
+    border-radius:11px;font-size:.82rem;font-weight:600;color:var(--navy);cursor:pointer;
+    text-align:center;transition:.15s;line-height:1.15}
+  .tab .n{display:block;font-size:1rem}
+  .tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .stage{background:#fff;border:1.5px solid #e6e2d8;border-radius:16px;padding:8px;
+    box-shadow:0 1px 0 #efece4}
+  .titlebar{display:flex;align-items:baseline;justify-content:space-between;padding:2px 6px 6px}
+  .ptitle{font-weight:700;color:var(--navy);font-size:1rem}
+  .pcount{font-variant-numeric:tabular-nums;font-weight:700;color:var(--traced);font-size:.95rem}
+  svg{width:100%;height:auto;display:block;touch-action:manipulation}
+  .edge{stroke:var(--edge);stroke-width:6;stroke-linecap:round;fill:none;transition:stroke .12s,stroke-width .12s}
+  .edge.traced{stroke:var(--traced);stroke-width:8}
+  .hit{stroke:transparent;stroke-width:26;stroke-linecap:round;fill:none;cursor:pointer}
+  .wall{stroke:var(--wall);stroke-width:9;stroke-linecap:round;fill:none}
+  .land{fill:#DECFA6}.water{fill:#BCD8E6}
+  .node{fill:var(--node);stroke:#fff;stroke-width:2.5;cursor:pointer}
+  .node.pen{fill:var(--pen)}
+  .penring{fill:none;stroke:var(--pen);stroke-width:3;opacity:.55;
+    transform-box:fill-box;transform-origin:center;animation:pulse 1.15s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.7);opacity:.7}100%{transform:scale(1.9);opacity:0}}
+  .msg{min-height:1.5em;text-align:center;font-size:.95rem;font-weight:600;color:var(--sub);
+    margin:9px 4px 2px;line-height:1.3}
+  .msg.win{color:var(--good)}.msg.stuck{color:var(--pen)}
+  .controls{display:flex;gap:10px;margin-top:8px}
+  .btn{flex:1;padding:12px;border-radius:12px;border:1.5px solid #d8d4ca;background:#fff;
+    font-size:.95rem;font-weight:700;color:var(--navy);cursor:pointer}
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .foot{margin-top:16px;text-align:center;font-size:.82rem;color:var(--sub);
+    font-style:italic;line-height:1.4;padding:0 6px}
+  .goal{text-align:center;font-size:.86rem;color:var(--sub);margin:0 4px 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Trace it in one stroke</h1>
+  <p class="how">Tap a dot to place your pen, then tap the connected lines to trace over them.
+     Cross <b>every line exactly once</b> &mdash; no line twice, and don&rsquo;t lift your pen.</p>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="stage">
+    <div class="titlebar">
+      <span class="ptitle" id="ptitle"></span>
+      <span class="pcount" id="pcount"></span>
+    </div>
+    <p class="goal" id="goal"></p>
+    <div id="svgbox"></div>
+  </div>
+
+  <div class="msg" id="msg">Tap a dot to place your pen.</div>
+  <div class="controls">
+    <button class="btn" id="undo">Undo</button>
+    <button class="btn primary" id="restart">Restart</button>
+  </div>
+
+  <p class="foot">Why can some of these be traced in one stroke and others can&rsquo;t?
+     There&rsquo;s a beautiful reason &mdash; and we&rsquo;ll get to it in the second half of the course.</p>
+</div>
+
+<script>
+/* ---------- puzzle definitions ---------- */
+const PUZZLES = [
+{
+  key:"house", n:"1", label:"The<br>Envelope", title:"①  The Envelope",
+  vb:[80,50,240,290], deco:"",
+  nodes:{BL:[[120,300]],BR:[[280,300]],TR:[[280,160]],TL:[[120,160]],M:[[200,80]]},
+  edges:[
+    {id:"h1",a:"BL",b:"BR",d:"M120 300 L280 300"},
+    {id:"h2",a:"BR",b:"TR",d:"M280 300 L280 160"},
+    {id:"h3",a:"TR",b:"TL",d:"M280 160 L120 160"},
+    {id:"h4",a:"TL",b:"BL",d:"M120 160 L120 300"},
+    {id:"h5",a:"TL",b:"M", d:"M120 160 L200 80"},
+    {id:"h6",a:"TR",b:"M", d:"M280 160 L200 80"}
+  ]
+},
+{
+  key:"housex", n:"2", label:"The<br>House", title:"②  The House",
+  vb:[80,50,240,290], deco:"",
+  nodes:{BL:[[120,300]],BR:[[280,300]],TR:[[280,160]],TL:[[120,160]],M:[[200,80]]},
+  edges:[
+    {id:"x1",a:"BL",b:"BR",d:"M120 300 L280 300"},
+    {id:"x2",a:"BR",b:"TR",d:"M280 300 L280 160"},
+    {id:"x3",a:"TR",b:"TL",d:"M280 160 L120 160"},
+    {id:"x4",a:"TL",b:"BL",d:"M120 160 L120 300"},
+    {id:"x5",a:"TL",b:"M", d:"M120 160 L200 80"},
+    {id:"x6",a:"TR",b:"M", d:"M280 160 L200 80"},
+    {id:"x7",a:"BL",b:"TR",d:"M120 300 L280 160"},
+    {id:"x8",a:"BR",b:"TL",d:"M280 300 L120 160"}
+  ]
+},
+{
+  key:"konig", n:"3", label:"Seven<br>Bridges", title:"③  The Seven Bridges of Königsberg",
+  vb:[0,0,600,400],
+  deco:`<rect class="water" x="0" y="0" width="600" height="400"/>
+    <path class="land" d="M0 0 H600 V92 Q450 132 300 120 Q150 132 0 92 Z"/>
+    <path class="land" d="M0 400 H600 V308 Q450 268 300 280 Q150 268 0 308 Z"/>
+    <ellipse class="land" cx="210" cy="200" rx="95" ry="58"/>
+    <ellipse class="land" cx="485" cy="200" rx="82" ry="62"/>`,
+  nodes:{N:[[300,70]],S:[[300,330]],A:[[210,200]],B:[[485,200]]},
+  edges:[
+    {id:"k1",a:"A",b:"N",d:"M210 200 Q195 112 300 70"},
+    {id:"k2",a:"A",b:"N",d:"M210 200 Q300 148 300 70"},
+    {id:"k3",a:"A",b:"S",d:"M210 200 Q195 288 300 330"},
+    {id:"k4",a:"A",b:"S",d:"M210 200 Q300 252 300 330"},
+    {id:"k5",a:"A",b:"B",d:"M210 200 L485 200"},
+    {id:"k6",a:"B",b:"N",d:"M485 200 Q430 105 300 70"},
+    {id:"k7",a:"B",b:"S",d:"M485 200 Q430 295 300 330"}
+  ]
+},
+{
+  key:"rooms", n:"4", label:"Five<br>Rooms", title:"④  The Five Rooms",
+  vb:[0,0,600,420],
+  deco:`<rect x="60" y="60" width="480" height="300" rx="6" fill="#FBF6EA" stroke="none"/>
+    <path class="wall" d="M60 60 H540 V360 H60 Z"/>
+    <path class="wall" d="M60 210 H540"/>
+    <path class="wall" d="M300 60 V210"/>
+    <path class="wall" d="M220 210 V360"/>
+    <path class="wall" d="M380 210 V360"/>`,
+  nodes:{
+    A:[[180,135]],B:[[420,135]],C:[[140,285]],D:[[300,285]],E:[[460,285]],
+    O:[[180,25],[420,25],[25,135],[25,285],[575,135],[575,285],[140,400],[300,400],[460,400]]
+  },
+  edges:[
+    {id:"AB",a:"A",b:"B",d:"M180 135 L420 135"},
+    {id:"AC",a:"A",b:"C",d:"M180 135 L140 285"},
+    {id:"AD",a:"A",b:"D",d:"M180 135 L300 285"},
+    {id:"BD",a:"B",b:"D",d:"M420 135 L300 285"},
+    {id:"BE",a:"B",b:"E",d:"M420 135 L460 285"},
+    {id:"CD",a:"C",b:"D",d:"M140 285 L300 285"},
+    {id:"DE",a:"D",b:"E",d:"M300 285 L460 285"},
+    {id:"AOt",a:"A",b:"O",d:"M180 135 L180 25"},
+    {id:"AOl",a:"A",b:"O",d:"M180 135 L25 135"},
+    {id:"BOt",a:"B",b:"O",d:"M420 135 L420 25"},
+    {id:"BOr",a:"B",b:"O",d:"M420 135 L575 135"},
+    {id:"COl",a:"C",b:"O",d:"M140 285 L25 285"},
+    {id:"COb",a:"C",b:"O",d:"M140 285 L140 400"},
+    {id:"DOb",a:"D",b:"O",d:"M300 285 L300 400"},
+    {id:"EOr",a:"E",b:"O",d:"M460 285 L575 285"},
+    {id:"EOb",a:"E",b:"O",d:"M460 285 L460 400"}
+  ]
+}
+];
+const GOALS={
+  house:"Cross all 6 lines — one stroke, no line twice.",
+  housex:"Cross all 8 lines — one stroke, no line twice.",
+  konig:"Cross all 7 bridges — each exactly once, without lifting your pen.",
+  rooms:"Draw one continuous line that crosses every wall exactly once. “Outside” counts as a room."
+};
+
+/* ---------- state + rendering ---------- */
+let cur=0, st=null;
+function fresh(){ st={used:new Set(), hist:[], pen:null}; }
+
+function nodeById(p,id){return p.nodes[id];}
+function render(){
+  const p=PUZZLES[cur];
+  document.getElementById("ptitle").innerHTML=p.title;
+  document.getElementById("goal").textContent=GOALS[p.key];
+  const total=p.edges.length;
+  document.getElementById("pcount").textContent=`${st.used.size} / ${total}`;
+
+  let s=`<svg viewBox="${p.vb.join(' ')}" xmlns="http://www.w3.org/2000/svg" role="img">`;
+  s+=p.deco||"";
+  // visible edges
+  for(const e of p.edges){
+    const cls="edge"+(st.used.has(e.id)?" traced":"");
+    s+=`<path class="${cls}" d="${e.d}"/>`;
+  }
+  // hit targets on top
+  for(const e of p.edges){
+    s+=`<path class="hit" d="${e.d}" data-edge="${e.id}"/>`;
+  }
+  // pen rings (under nodes)
+  if(st.pen){
+    for(const [x,y] of p.nodes[st.pen]) s+=`<circle class="penring" cx="${x}" cy="${y}" r="15"/>`;
+  }
+  // nodes
+  for(const id in p.nodes){
+    const isPen=id===st.pen;
+    for(const [x,y] of p.nodes[id]){
+      s+=`<circle class="node${isPen?' pen':''}" cx="${x}" cy="${y}" r="13" data-node="${id}"/>`;
+    }
+  }
+  s+="</svg>";
+  document.getElementById("svgbox").innerHTML=s;
+  updateControls(total);
+}
+function updateControls(total){
+  document.getElementById("undo").disabled=st.hist.length===0;
+  document.getElementById("undo").style.opacity=st.hist.length?1:.45;
+}
+
+/* ---------- game logic ---------- */
+function setMsg(t,cls=""){const m=document.getElementById("msg");m.textContent=t;m.className="msg "+cls;}
+
+function tapNode(id){
+  if(st.pen===null){ st.pen=id; render(); setMsg("Pen placed. Now tap a connected line."); }
+}
+function tapEdge(eid){
+  const p=PUZZLES[cur];
+  const e=p.edges.find(x=>x.id===eid);
+  if(st.pen===null){ setMsg("Tap a dot first to place your pen."); return; }
+  if(st.used.has(eid)){ setMsg("You’ve already crossed that one — no line twice!","stuck"); return; }
+  let other=null;
+  if(e.a===st.pen) other=e.b;
+  else if(e.b===st.pen) other=e.a;
+  if(other===null){ setMsg("Your pen isn’t on that line. Only cross a line connected to your pen.","stuck"); return; }
+  st.used.add(eid); st.hist.push({eid,from:st.pen}); st.pen=other;
+  render();
+  checkState();
+}
+function checkState(){
+  const p=PUZZLES[cur], total=p.edges.length;
+  if(st.used.size===total){ setMsg("✨ Solved! You crossed all "+total+" in one stroke.","win"); return; }
+  const canMove=p.edges.some(e=>!st.used.has(e.id)&&(e.a===st.pen||e.b===st.pen));
+  if(!canMove){
+    setMsg("Stuck! "+(total-st.used.size)+" left and nowhere to go. Undo, or Restart and begin somewhere else.","stuck");
+  } else {
+    setMsg("Crossed "+st.used.size+" of "+total+". Keep going!");
+  }
+}
+function undo(){
+  if(!st.hist.length) return;
+  const last=st.hist.pop();
+  st.used.delete(last.eid); st.pen=last.from;
+  render();
+  if(st.used.size===0){ setMsg("Back to the start. Tap a dot to place your pen."); }
+  else setMsg("Undid one. Crossed "+st.used.size+".");
+}
+function restart(){ fresh(); render(); setMsg("Fresh start — tap a dot to place your pen."); }
+function selectPuzzle(i){
+  cur=i; fresh();
+  document.querySelectorAll(".tab").forEach((t,j)=>t.classList.toggle("active",j===i));
+  render(); setMsg("Tap a dot to place your pen.");
+}
+
+/* ---------- wiring ---------- */
+(function init(){
+  const tabs=document.getElementById("tabs");
+  PUZZLES.forEach((p,i)=>{
+    const b=document.createElement("button");
+    b.className="tab"+(i===0?" active":"");
+    b.innerHTML=`<span class="n">${p.n}</span>${p.label}`;
+    b.addEventListener("click",()=>selectPuzzle(i));
+    tabs.appendChild(b);
+  });
+  document.getElementById("svgbox").addEventListener("click",ev=>{
+    const t=ev.target;
+    if(t.dataset && t.dataset.edge) tapEdge(t.dataset.edge);
+    else if(t.dataset && t.dataset.node) tapNode(t.dataset.node);
+  });
+  document.getElementById("undo").addEventListener("click",undo);
+  document.getElementById("restart").addEventListener("click",restart);
+  fresh(); render();
+})();
+</script>
+</body>
+</html>

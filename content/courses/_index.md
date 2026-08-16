@@ -46,6 +46,10 @@ draft = false
     margin-top: 0.15rem;
   }
 
+  .courses-entry + .courses-entry {
+    margin-top: 1.1rem;
+  }
+
   .courses-status {
     color: #7a2e22;
     font-size: 0.95rem;
@@ -66,10 +70,16 @@ draft = false
   </div>
   <div class="courses-list">
   <div class="courses-row">
-    <div class="courses-label">Course</div>
+    <div class="courses-label">Courses</div>
     <div>
-      <div class="courses-title"><a href="/courses/cse-564/">CSE 565 Graduate Complexity (Spring 2026)</a></div>
-      <div class="courses-meta">Syllabus, reading material, and lecture notes.</div>
+      <div class="courses-entry">
+        <div class="courses-title"><a href="/courses/cmpsc-360/">CMPSC 360 Discrete Math (Fall 2026)</a></div>
+        <div class="courses-meta">Public course overview and tentative schedule.</div>
+      </div>
+      <div class="courses-entry">
+        <div class="courses-title"><a href="/courses/cse-564/">CSE 565 Graduate Complexity (Spring 2026)</a></div>
+        <div class="courses-meta">Syllabus, reading material, and lecture notes.</div>
+      </div>
     </div>
   </div>
   <div class="courses-row">
