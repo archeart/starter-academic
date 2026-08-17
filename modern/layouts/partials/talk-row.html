@@ -1,0 +1,14 @@
+{{- $talk := .talk -}}
+<article class="talk-row">
+  <p class="talk-meta"><span>{{ $talk.year }}</span><span>{{ $talk.host }}</span></p>
+  {{ if $.homepage }}
+    <h5>{{ $talk.title }}</h5>
+  {{ else }}
+    <h2>{{ $talk.title }}</h2>
+  {{ end }}
+  <div class="talk-links">
+    {{ range $talk.links }}
+      <a href="{{ .href }}" target="_blank" rel="noopener">{{ .label }} <span aria-hidden="true">↗</span></a>
+    {{ end }}
+  </div>
+</article>

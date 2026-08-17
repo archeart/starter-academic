@@ -1,0 +1,14 @@
+{{- $profile := site.Data.profile -}}
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="{{ "/" | relURL }}" aria-label="Pei Wu, home">
+      <span class="brand-name">{{ $profile.name }}</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="{{ "/" | relURL }}">About</a>
+      <a href="{{ "/#research" | relURL }}">Research</a>
+      <a href="{{ "/courses/" | relURL }}">Courses</a>
+      <a href="{{ "/#contact" | relURL }}">Contact</a>
+    </nav>
+  </div>
+</header>

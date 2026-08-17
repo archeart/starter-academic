@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <section class="page-shell collection-page talks-page">
+    <header class="collection-header">
+      <p class="eyebrow">Research</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
+    <div class="talk-list">
+      {{ range site.Data.talks }}
+        {{ partial "talk-row.html" (dict "talk" . "homepage" false) }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -1,0 +1,24 @@
+{{- $publication := .publication -}}
+{{- $compact := .compact | default false -}}
+<article class="publication-row">
+  <p class="publication-meta">
+    <span>{{ $publication.year }}</span>
+    <span>{{ $publication.venue }}</span>
+  </p>
+  <div class="publication-content">
+    <h4><a href="{{ $publication.pdf | relURL }}">{{ $publication.title }}</a></h4>
+    <p>{{ $publication.authors }}</p>
+    {{ if not $compact }}
+      {{ with $publication.note }}<p class="publication-note">{{ . }}</p>{{ end }}
+    {{ end }}
+  </div>
+  <div class="publication-actions">
+    <a class="publication-link" href="{{ $publication.pdf | relURL }}" target="_blank" rel="noopener" aria-label="PDF: {{ $publication.title }}">PDF</a>
+    {{ with $publication.slides }}
+      <a class="publication-link" href="{{ . | relURL }}" target="_blank" rel="noopener">Slides</a>
+    {{ end }}
+    {{ range $publication.links }}
+      <a class="publication-link" href="{{ .href }}" target="_blank" rel="noopener">{{ .label }}</a>
+    {{ end }}
+  </div>
+</article>

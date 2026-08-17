@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <article class="page-shell content-page">
+    <header>
+      {{ with .Section }}<p class="eyebrow">{{ . | humanize }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="page-description">{{ . }}</p>{{ end }}
+    </header>
+    <div class="prose">{{ .Content }}</div>
+  </article>
+{{ end }}

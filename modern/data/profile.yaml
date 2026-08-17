@@ -1,0 +1,43 @@
+name: Pei Wu
+initials: PW
+role: Assistant Professor
+department: Department of Computer Science and Engineering
+university: Penn State University
+email: pei.wu@psu.edu
+address:
+  - W315 Westgate Building
+  - State College, PA 16802
+introduction: >-
+  I am broadly interested in complexity theory, including quantum complexity,
+  Sum-of-Squares optimization, and query and communication complexity.
+biography:
+  - >-
+    I obtained my Ph.D. in Computer Science from the University of California,
+    Los Angeles, where I was fortunate to be advised by
+    [Alexander Sherstov](http://web.cs.ucla.edu/~sherstov/).
+  - >-
+    I spent two years as a postdoctoral member at the Institute for Advanced
+    Study under the supervision of
+    [Avi Wigderson](https://www.math.ias.edu/avi/home), followed by one year as a
+    postdoctoral researcher at the Weizmann Institute, hosted by
+    [Thomas Vidick](https://www.weizmann.ac.il/math/vidick/home).
+profiles:
+  - label: Google Scholar
+    badge: GS
+    href: https://scholar.google.co.uk/citations?user=i152hTQAAAAJ
+  - label: CV
+    badge: CV
+    href: /files/cv.pdf
+research_interests:
+  - title: Quantum proofs
+    description: >-
+      Complexity-theoretic questions involving quantum proof systems and quantum
+      computation.
+  - title: Query and communication complexity
+    description: >-
+      Computation when access to the input or communication between parties is
+      limited.
+  - title: Sum-of-Squares optimization
+    description: >-
+      The Sum-of-Squares hierarchy and its applications in optimization and
+      theoretical computer science.

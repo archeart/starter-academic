@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="course-page">
+    {{ if .Params.show_page_header }}
+      <header class="page-shell course-page-header">
+        <p class="eyebrow">Course</p>
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.subtitle }}<p>{{ . }}</p>{{ end }}
+      </header>
+    {{ end }}
+    <div class="page-shell course-content">{{ .Content }}</div>
+  </article>
+{{ end }}

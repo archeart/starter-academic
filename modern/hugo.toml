@@ -1,0 +1,21 @@
+baseURL = "https://pwu.netlify.app/"
+languageCode = "en-us"
+title = "Pei Wu"
+enableRobotsTXT = true
+enableEmoji = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Pei Wu is an assistant professor in the Department of Computer Science and Engineering at Penn State, working in complexity theory."
+  author = "Pei Wu"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[minify]
+  minifyOutput = true
+
+[pagination]
+  pagerSize = 10

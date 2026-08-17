@@ -1,0 +1,112 @@
+{{ define "main" }}
+  {{- $profile := site.Data.profile -}}
+  {{- $portrait := resources.Get "images/pei-wu.jpg" -}}
+  {{- $portraitWebp := $portrait.Fill "280x280 Center webp q88" -}}
+
+  <section class="profile-section section" aria-labelledby="profile-name">
+    <div class="page-shell profile-content">
+      <header class="profile-heading">
+        <div class="profile-identity">
+          <p class="eyebrow">Theoretical computer science</p>
+          <h1 id="profile-name">{{ $profile.name }}</h1>
+          <p class="profile-role">{{ $profile.role }}</p>
+          <p class="profile-affiliation">{{ $profile.department }} · {{ $profile.university }}</p>
+          <div class="profile-external">
+            {{ range $profile.profiles }}
+              <a href="{{ .href }}" target="_blank" rel="noopener">
+                <span class="profile-link-mark" aria-hidden="true">{{ .badge }}</span>
+                <span>{{ .label }}</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+        <div class="portrait-frame">
+          <img
+            src="{{ $portraitWebp.RelPermalink }}"
+            width="280"
+            height="280"
+            alt="Portrait of {{ $profile.name }}"
+            fetchpriority="high">
+        </div>
+      </header>
+
+      <div class="profile-copy">
+        <h2>Biography</h2>
+        <p class="profile-introduction">{{ $profile.introduction }}</p>
+        <div class="prose about-copy">
+        {{ range $profile.biography }}
+          <p>{{ . | markdownify }}</p>
+        {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="research section" id="research" aria-labelledby="research-title">
+    <div class="page-shell">
+      <div class="research-heading">
+        <div class="section-heading">
+          <p class="section-number">Research</p>
+          <h2 id="research-title">Research interests</h2>
+        </div>
+      </div>
+      <div class="interest-grid">
+        {{ range $profile.research_interests }}
+          <article class="interest-card">
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </article>
+        {{ end }}
+        <p class="interest-more" aria-label="Additional research interests">&ctdot;</p>
+      </div>
+
+      <div class="recent-publications" aria-labelledby="recent-publications-title">
+        <div class="recent-publications-heading">
+          <p class="section-number">Selected work</p>
+          <h3 id="recent-publications-title">Selected publications</h3>
+        </div>
+        <div class="publication-list">
+          {{ range where site.Data.publications "featured" true }}
+            {{ partial "publication-row.html" (dict "publication" . "compact" true) }}
+          {{ end }}
+        </div>
+
+        <details class="more-research-material">
+          <summary>More papers, slides, and talks</summary>
+          <div class="publication-list publication-list-more">
+            {{ range where site.Data.publications "featured" "ne" true }}
+              {{ partial "publication-row.html" (dict "publication" . "compact" false) }}
+            {{ end }}
+          </div>
+          <section class="more-talks" aria-labelledby="more-talks-title">
+            <h4 id="more-talks-title">Recorded talks</h4>
+            <div class="talk-list talk-list-inline">
+              {{ range site.Data.talks }}
+                {{ partial "talk-row.html" (dict "talk" . "homepage" true) }}
+              {{ end }}
+            </div>
+          </section>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact section" id="contact" aria-labelledby="contact-title">
+    <div class="page-shell contact-card">
+      <h2 id="contact-title">Contact</h2>
+      <div class="contact-details">
+        <div>
+          <p class="detail-label">Email</p>
+          <a href="mailto:{{ $profile.email }}">{{ $profile.email }}</a>
+        </div>
+        <div>
+          <p class="detail-label">Office</p>
+          <address>
+            {{ range $profile.address }}{{ . }}<br>{{ end }}
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}
