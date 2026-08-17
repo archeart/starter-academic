@@ -43,28 +43,11 @@
     </div>
   </section>
 
-  <section class="research section" id="research" aria-labelledby="research-title">
+  <section class="research section" id="research" aria-labelledby="recent-publications-title">
     <div class="page-shell">
-      <div class="research-heading">
-        <div class="section-heading">
-          <p class="section-number">Research</p>
-          <h2 id="research-title">Research interests</h2>
-        </div>
-      </div>
-      <div class="interest-grid">
-        {{ range $profile.research_interests }}
-          <article class="interest-card">
-            <h3>{{ .title }}</h3>
-            <p>{{ .description }}</p>
-          </article>
-        {{ end }}
-        <p class="interest-more" aria-label="Additional research interests">&ctdot;</p>
-      </div>
-
-      <div class="recent-publications" aria-labelledby="recent-publications-title">
+      <div class="recent-publications">
         <div class="recent-publications-heading">
-          <p class="section-number">Selected work</p>
-          <h3 id="recent-publications-title">Selected publications</h3>
+          <h2 id="recent-publications-title">Selected publications</h2>
         </div>
         <div class="publication-list">
           {{ range where site.Data.publications "featured" true }}

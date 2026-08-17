@@ -63,9 +63,6 @@ if [[ "$scope" == "home" ]]; then
     "Pei Wu"
     "Department of Computer Science and Engineering"
     "Biography"
-    "Quantum proofs"
-    "Query and communication complexity"
-    "Sum-of-Squares optimization"
     "Selected publications"
     "Optimal Quantum de Finetti Theorems via Argmax Rounding"
     "Randomized and Quantum Lifting for One-Way Conservative NOF Model"
@@ -90,6 +87,13 @@ if [[ "$scope" == "home" ]]; then
       failures=$((failures + 1))
     fi
   done
+
+  if [[ "$home_html" == *"Research interests"* || "$home_html" == *"interest-card"* || "$home_html" == *">Research</p>"* ]]; then
+    printf '  FAIL removed research-interest heading or cards are still present\n'
+    failures=$((failures + 1))
+  else
+    printf '  OK   selected publications is the sole research-section heading\n'
+  fi
 
   if [[ "$home_html" == *"brand-mark"* ]]; then
     printf '  FAIL removed PW monogram is still present\n'

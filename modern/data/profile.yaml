@@ -28,16 +28,3 @@ profiles:
   - label: CV
     badge: CV
     href: /files/cv.pdf
-research_interests:
-  - title: Quantum proofs
-    description: >-
-      Complexity-theoretic questions involving quantum proof systems and quantum
-      computation.
-  - title: Query and communication complexity
-    description: >-
-      Computation when access to the input or communication between parties is
-      limited.
-  - title: Sum-of-Squares optimization
-    description: >-
-      The Sum-of-Squares hierarchy and its applications in optimization and
-      theoretical computer science.

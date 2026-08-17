@@ -162,7 +162,6 @@ a {
 
 .profile-heading h1,
 .profile-copy h2,
-.section-heading h2,
 .contact h2,
 .content-page h1,
 .not-found h1 {
@@ -327,11 +326,6 @@ a {
   padding: clamp(4.5rem, 9vw, 8.5rem) 0;
 }
 
-.section-heading h2,
-.contact h2 {
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
-}
-
 .about-copy {
   font-family: var(--serif);
   font-size: clamp(1rem, 1.3vw, 1.1rem);
@@ -351,76 +345,19 @@ a {
   color: var(--ink);
 }
 
-.research-heading {
-  display: block;
-}
-
 .research .section-number {
   color: var(--accent-deep);
 }
 
-.interest-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) 2rem;
-  margin-top: clamp(2.5rem, 5vw, 4.5rem);
-}
-
-.interest-card {
-  background: var(--paper-light);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--accent);
-  min-height: 13rem;
-  padding: clamp(1.5rem, 3vw, 2.2rem);
-}
-
-.interest-card + .interest-card {
-  border-left: 1px solid var(--line);
-}
-
-.interest-card h3 {
-  font-family: var(--serif);
-  font-size: clamp(1.55rem, 3vw, 2.25rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1.12;
-  margin: 0;
-}
-
-.interest-card > p:last-child {
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-  margin: 1.25rem 0 0;
-}
-
-.interest-more {
-  align-self: center;
-  color: var(--accent-deep);
-  font-family: var(--serif);
-  font-size: 2rem;
-  line-height: 1;
-  margin: 0;
-  text-align: center;
-}
-
 .recent-publications {
-  border-top: 1px solid var(--line);
-  margin-top: clamp(3.5rem, 7vw, 6rem);
-  padding-top: clamp(2.5rem, 5vw, 4rem);
+  margin-top: 0;
 }
 
 .recent-publications-heading {
-  align-items: baseline;
-  display: flex;
-  gap: 1.25rem;
-  justify-content: space-between;
+  text-align: left;
 }
 
-.recent-publications-heading .section-number {
-  margin: 0;
-}
-
-.recent-publications-heading h3 {
+.recent-publications-heading h2 {
   font-family: var(--serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 500;
@@ -575,7 +512,6 @@ a {
   padding-top: clamp(2.5rem, 5vw, 4rem);
 }
 
-.research .section-heading h2,
 .contact h2 {
   font-size: clamp(2rem, 4vw, 3rem);
 }
@@ -794,23 +730,6 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .interest-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .interest-card {
-    min-height: 0;
-    padding: 1.8rem;
-  }
-
-  .interest-card + .interest-card {
-    border-left: 1px solid var(--line);
-    border-top: 3px solid var(--accent);
-  }
-
-  .interest-more {
-    justify-self: center;
-  }
 }
 
 @media (max-width: 680px) {
@@ -848,12 +767,6 @@ a {
   .contact-details {
     gap: 2rem;
     grid-template-columns: 1fr;
-  }
-
-  .recent-publications-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.5rem;
   }
 
   .publication-row {
