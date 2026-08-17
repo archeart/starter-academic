@@ -15,8 +15,7 @@
   .skywrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid #1a2238;box-shadow:0 6px 24px rgba(0,0,0,.5)}
   canvas{display:block;width:100%;height:auto}
   #sky{touch-action:manipulation;cursor:crosshair}
-  .prompt{position:absolute;left:10px;top:10px;right:10px;font-size:.84rem;color:#C9D3EE;
-    background:rgba(6,9,20,.55);backdrop-filter:blur(3px);padding:6px 10px;border-radius:9px;line-height:1.3;pointer-events:none;border:1px solid rgba(120,140,200,.18)}
+  .hint{font-size:.86rem;color:#C9D3EE;margin:0 2px 7px;line-height:1.3;min-height:1.15em}
   .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 2px}
   .chip{flex:1 1 auto;padding:9px 8px;border:1.5px solid #26304f;background:#0c1122;border-radius:11px;
     color:#C4CEE8;font-size:.84rem;font-weight:600;cursor:pointer;text-align:center;transition:.15s;white-space:nowrap}
@@ -41,7 +40,8 @@
   <div class="skywrap"><canvas id="ref"></canvas></div>
 
   <div class="cap">Your random sky &mdash; connect the dots</div>
-  <div class="skywrap"><canvas id="sky"></canvas><div class="prompt" id="prompt"></div></div>
+  <div class="hint" id="prompt"></div>
+  <div class="skywrap"><canvas id="sky"></canvas></div>
 
   <div class="chips" id="chips"></div>
   <div class="status" id="status">Tap two stars to draw a line between them. Build the shape, star by star.</div>
@@ -72,14 +72,10 @@ const CONS={
 const HEART={color:"#FF6E8E", size:8, smin:.3, smax:1.0, maxRot:.5,
   pts:[[.5,1],[.16,.56],[.04,.28],[.23,.1],[.5,.32],[.77,.1],[.96,.28],[.84,.56]]};
 const LAYERS=[
- {key:"penta", short:"Pentagon", color:"#E8C15A",
-   prompt:"Draw a <b>convex pentagon</b> — a 5-sided shape with no dents. Tap two stars to draw each side."},
- {key:"cas", short:"Cassiopeia", color:"#7FB0FF",
-   prompt:"Draw <b>Cassiopeia</b> — the zig-zag W in the picture above. Tap two stars to connect each pair."},
- {key:"uma", short:"Ursa Major", color:"#8FD6C4",
-   prompt:"Draw <b>Ursa Major</b> — the Big Dipper's bowl and handle. Tap two stars per line."},
- {key:"cyg", short:"Cygnus", color:"#C9A0E8",
-   prompt:"Draw <b>Cygnus</b> — the cross. Connect the center star out to each of the four arms."}
+ {key:"penta", short:"Pentagon", color:"#E8C15A", prompt:"Draw a <b>convex pentagon</b> — 5 sides, no dents."},
+ {key:"cas", short:"Cassiopeia", color:"#7FB0FF", prompt:"Draw <b>Cassiopeia</b> — the W above."},
+ {key:"uma", short:"Ursa Major", color:"#8FD6C4", prompt:"Draw <b>Ursa Major</b> — the Big Dipper."},
+ {key:"cyg", short:"Cygnus", color:"#C9A0E8", prompt:"Draw <b>Cygnus</b> — center out to 4 arms."}
 ];
 const LC={}; LAYERS.forEach(L=>LC[L.key]=L.color);
 
@@ -107,7 +103,7 @@ function matchTemplate(T,pool){
 /* ===================== reference sky ===================== */
 const refc=document.getElementById("ref"), rctx=refc.getContext("2d");
 function drawRef(){
-  const w=refc.parentElement.clientWidth, h=w*0.34, d=window.devicePixelRatio||1;
+  const w=refc.parentElement.clientWidth, h=w*0.40, d=window.devicePixelRatio||1;
   refc.width=w*d; refc.height=h*d; refc.style.height=h+"px"; rctx.setTransform(d,0,0,d,0,0);
   const g=rctx.createLinearGradient(0,0,0,h); g.addColorStop(0,"#0c1330");g.addColorStop(1,"#060912");
   rctx.fillStyle=g; rctx.fillRect(0,0,w,h);
@@ -115,13 +111,13 @@ function drawRef(){
   keys.forEach((k,ci)=>{const T=CONS[k];
     const padX=cw*0.16, padTop=h*0.16, figW=cw-2*padX, figH=h*0.5;
     const map=p=>({x:ci*cw+padX+p[0]*figW, y:padTop+p[1]*figH});
-    rctx.save();rctx.globalAlpha=.12;rctx.font=Math.min(cw,h)*0.46+"px serif";rctx.textAlign="center";rctx.textBaseline="middle";
+    rctx.save();rctx.globalAlpha=.22;rctx.font=Math.min(cw,h)*0.55+"px serif";rctx.textAlign="center";rctx.textBaseline="middle";
     rctx.fillText(T.emoji, ci*cw+cw/2, h*0.42);rctx.restore();
     rctx.strokeStyle=T.color;rctx.lineWidth=1.7;rctx.lineJoin="round";
     T.edges.forEach(e=>{const A=map(T.pts[e[0]]),B=map(T.pts[e[1]]);rctx.beginPath();rctx.moveTo(A.x,A.y);rctx.lineTo(B.x,B.y);rctx.stroke();});
     T.pts.forEach(p=>{const m=map(p);rctx.save();rctx.shadowBlur=8;rctx.shadowColor="#fff";rctx.fillStyle="#fff";rctx.beginPath();rctx.arc(m.x,m.y,2.5,0,7);rctx.fill();rctx.restore();});
     rctx.fillStyle=T.color;rctx.font="600 12px -apple-system,sans-serif";rctx.textAlign="center";rctx.textBaseline="alphabetic";
-    rctx.fillText(T.short, ci*cw+cw/2, h*0.93);
+    rctx.fillText(T.emoji+"  "+T.short, ci*cw+cw/2, h*0.94);
   });
 }
 
