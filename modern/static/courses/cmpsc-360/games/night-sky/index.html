@@ -8,20 +8,26 @@
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;background:#05060d;color:#EAF0FF;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:760px;margin:0 auto;padding:14px 14px 28px;min-height:100vh;display:flex;flex-direction:column}
+  .wrap{max-width:780px;margin:0 auto;padding:14px 14px 30px}
   h1{font-size:1.2rem;font-weight:600;margin:2px 0 3px;letter-spacing:.3px}
-  .sub{font-size:.9rem;color:#9AA6C6;margin:0 0 12px;line-height:1.4}
-  .skywrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid #1a2238;box-shadow:0 8px 30px rgba(0,0,0,.5)}
-  canvas{display:block;width:100%;height:auto;touch-action:manipulation;cursor:crosshair}
-  .prompt{position:absolute;left:12px;top:12px;right:12px;font-size:.86rem;color:#C9D3EE;
-    background:rgba(6,9,20,.55);backdrop-filter:blur(3px);padding:7px 11px;border-radius:10px;
-    line-height:1.35;pointer-events:none;border:1px solid rgba(120,140,200,.18)}
-  .status{min-height:2.6em;text-align:center;font-size:.95rem;font-weight:600;color:#AEB9DA;margin:12px 6px 4px;line-height:1.35}
-  .status.win{color:#EAD98A}.status b{color:#EAF0FF}
-  .controls{display:flex;gap:10px;margin-top:6px}
-  .btn{flex:1;padding:12px;border-radius:12px;border:1.5px solid #26304f;background:#0c1122;color:#C4CEE8;font-size:.9rem;font-weight:700;cursor:pointer}
+  .sub{font-size:.9rem;color:#9AA6C6;margin:0 0 10px;line-height:1.4}
+  .cap{font-size:.82rem;color:#7f8bb0;margin:14px 2px 6px;letter-spacing:.4px;text-transform:uppercase;font-weight:600}
+  .skywrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid #1a2238;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+  canvas{display:block;width:100%;height:auto}
+  #sky{touch-action:manipulation;cursor:crosshair}
+  .prompt{position:absolute;left:10px;top:10px;right:10px;font-size:.84rem;color:#C9D3EE;
+    background:rgba(6,9,20,.55);backdrop-filter:blur(3px);padding:6px 10px;border-radius:9px;line-height:1.3;pointer-events:none;border:1px solid rgba(120,140,200,.18)}
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 2px}
+  .chip{flex:1 1 auto;padding:9px 8px;border:1.5px solid #26304f;background:#0c1122;border-radius:11px;
+    color:#C4CEE8;font-size:.84rem;font-weight:600;cursor:pointer;text-align:center;transition:.15s;white-space:nowrap}
+  .chip.active{border-color:#8fa0e0;box-shadow:0 0 0 1.5px #8fa0e0 inset;color:#fff}
+  .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:middle}
+  .status{min-height:1.6em;text-align:center;font-size:.9rem;color:#8f9bbd;margin:10px 6px 2px;line-height:1.3}
+  .status.heart{color:#FF9DB3;font-weight:600;font-size:.98rem;min-height:2.2em}
+  .controls{display:flex;gap:9px;margin-top:8px}
+  .btn{flex:1;padding:11px;border-radius:11px;border:1.5px solid #26304f;background:#0c1122;color:#C4CEE8;font-size:.88rem;font-weight:700;cursor:pointer}
   .btn:active{transform:translateY(1px)}
-  .btn.hero{background:#EAD98A;color:#1a1400;border-color:#EAD98A;flex:1.6}
+  .btn.hero{background:#FF6E8E;color:#2a0010;border-color:#FF6E8E}
   .btn:disabled{opacity:.4}
   .foot{margin-top:16px;text-align:center;font-size:.8rem;color:#6c789c;font-style:italic;line-height:1.45;padding:0 8px}
 </style>
@@ -29,228 +35,187 @@
 <body>
 <div class="wrap">
   <h1>A sky full of shapes</h1>
-  <p class="sub">First, find a shape that <i>must</i> be there. Then we&rsquo;ll talk about the ones your eyes invent.</p>
+  <p class="sub">Here are three real constellations. Below is a <i>random</i> sky &mdash; connect the stars and find every one of them for yourself.</p>
 
-  <div class="skywrap">
-    <canvas id="sky"></canvas>
-    <div class="prompt" id="prompt">Tap <b>5</b> stars that form a convex shape &mdash; no dents, every star on the outside.</div>
-  </div>
+  <div class="cap">The real night sky</div>
+  <div class="skywrap"><canvas id="ref"></canvas></div>
 
-  <div class="status" id="status">Find five stars in convex position. (There are more than you&rsquo;d believe.)</div>
+  <div class="cap">Your random sky &mdash; connect the dots</div>
+  <div class="skywrap"><canvas id="sky"></canvas><div class="prompt" id="prompt"></div></div>
+
+  <div class="chips" id="chips"></div>
+  <div class="status" id="status">Tap two stars to draw a line between them. Build the shape, star by star.</div>
   <div class="controls">
-    <button class="btn hero" id="reveal">✨ Reveal the constellations</button>
-    <button class="btn" id="clear">Clear</button>
+    <button class="btn" id="undo">Undo line</button>
+    <button class="btn" id="clear">Clear this shape</button>
     <button class="btn" id="newsky">New sky</button>
   </div>
+  <div class="controls" style="margin-top:9px">
+    <button class="btn hero" id="finale">♡  The last shape</button>
+  </div>
 
-  <p class="foot" id="foot">The pentagon was forced. The animals were not &mdash; the same random stars can be
-     anything at all. Why one is unavoidable is a story for later in the course.</p>
+  <p class="foot">Every shape you drew was hiding in pure randomness &mdash; the pentagon, the animals, all of it.
+     Scatter enough stars and structure is unavoidable. Why is a story for later in the course.</p>
 </div>
 
 <script>
-const cv=document.getElementById("sky"), ctx=cv.getContext("2d");
-const AR=0.64, N=34;
-let stars=[], dust=[], sel=[], pentaCount=0, dpr=1, revealing=false, found=[], revState=[], animalDim=1;
-
-/* ---------- geometry ---------- */
-function convexPosition(ps){
-  const c={x:0,y:0}; ps.forEach(p=>{c.x+=p.x;c.y+=p.y;}); c.x/=ps.length;c.y/=ps.length;
-  const s=[...ps].sort((a,b)=>Math.atan2(a.y-c.y,a.x-c.x)-Math.atan2(b.y-c.y,b.x-c.x));
-  let sign=0;
-  for(let i=0;i<s.length;i++){const a=s[i],b=s[(i+1)%s.length],d=s[(i+2)%s.length];
-    const cr=(b.x-a.x)*(d.y-b.y)-(b.y-a.y)*(d.x-b.x);
-    if(Math.abs(cr)<1e-7)return false; const sg=cr>0?1:-1;
-    if(sign===0)sign=sg; else if(sg!==sign)return false;} return true;}
-function countPentagons(pts){let cnt=0;const n=pts.length;
-  const rec=(st,pk)=>{if(pk.length===5){if(convexPosition(pk.map(i=>pts[i])))cnt++;return;}
-    for(let i=st;i<n;i++){pk.push(i);rec(i+1,pk);pk.pop();}};rec(0,[]);return cnt;}
-
-/* ---------- constellation templates (unit box, y down) ---------- */
-const TEMPLATES=[
- {name:"Cassiopeia — the Queen", color:"#EAD98A",
-  pts:[[0,.35],[.24,.03],[.46,.42],[.68,.06],[.9,.44]],
-  edges:[[0,1],[1,2],[2,3],[3,4]]},
- {name:"Ursa Major — the Great Bear", color:"#8FD6C4",
-  pts:[[0,.55],[.06,.16],[.36,.1],[.42,.46],[.63,.3],[.82,.2],[1,.12]],
-  edges:[[0,1],[1,2],[2,3],[3,0],[3,4],[4,5],[5,6]]},
- {name:"Cygnus — the Swan", color:"#C9A0E8",
-  pts:[[.5,0],[.5,.5],[.5,1],[.13,.58],[.87,.42]],
-  edges:[[0,1],[1,2],[3,1],[1,4]]}
+/* ===================== data ===================== */
+const CONS={
+ cas:{short:"Cassiopeia", emoji:"👑", color:"#7FB0FF",
+   pts:[[.05,.28],[.28,.62],[.5,.32],[.72,.64],[.95,.36]], edges:[[0,1],[1,2],[2,3],[3,4]]},
+ uma:{short:"Ursa Major", emoji:"🐻", color:"#8FD6C4",
+   pts:[[.10,.30],[.10,.60],[.35,.62],[.33,.35],[.55,.32],[.75,.27],[.95,.19]],
+   edges:[[0,1],[1,2],[2,3],[3,0],[3,4],[4,5],[5,6]]},
+ cyg:{short:"Cygnus", emoji:"🦢", color:"#C9A0E8",
+   pts:[[.5,.05],[.5,.45],[.5,.95],[.15,.5],[.85,.4]], edges:[[0,1],[1,2],[3,1],[1,4]]}
+};
+const HEART={color:"#FF6E8E", size:8, smin:.3, smax:1.0, maxRot:.5,
+  pts:[[.5,1],[.16,.56],[.04,.28],[.23,.1],[.5,.32],[.77,.1],[.96,.28],[.84,.56]]};
+const LAYERS=[
+ {key:"penta", short:"Pentagon", color:"#E8C15A",
+   prompt:"Draw a <b>convex pentagon</b> — a 5-sided shape with no dents. Tap two stars to draw each side."},
+ {key:"cas", short:"Cassiopeia", color:"#7FB0FF",
+   prompt:"Draw <b>Cassiopeia</b> — the zig-zag W in the picture above. Tap two stars to connect each pair."},
+ {key:"uma", short:"Ursa Major", color:"#8FD6C4",
+   prompt:"Draw <b>Ursa Major</b> — the Big Dipper's bowl and handle. Tap two stars per line."},
+ {key:"cyg", short:"Cygnus", color:"#C9A0E8",
+   prompt:"Draw <b>Cygnus</b> — the cross. Connect the center star out to each of the four arms."}
 ];
-// The heart is NOT a forced shape — it's the imposed, romantic finale. Matched over
-// bright + faint stars for a tight fit, kept upright, drawn as a smooth glowing curve.
-const HEART={heart:true, color:"#FF6E8E", smin:.3, smax:1.0, maxRot:.5,
-  pts:[[.5,1],[.16,.56],[.04,.28],[.23,.1],[.5,.32],[.77,.1],[.96,.28],[.84,.56]], edges:[]};
-function farPair(pts){let bi=0,bj=1,bd=-1;
-  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-    const d=Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1]); if(d>bd){bd=d;bi=i;bj=j;}}
-  return [bi,bj];}
+const LC={}; LAYERS.forEach(L=>LC[L.key]=L.color);
 
-/* similarity fit: map template so anchor a->star p, anchor b->star q, then greedily assign rest */
+/* ===================== template matching (heart only) ===================== */
+function farPair(pts){let bi=0,bj=1,bd=-1;for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+  const d=Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1]);if(d>bd){bd=d;bi=i;bj=j;}}return[bi,bj];}
 function matchTemplate(T,pool){
-  const [a,b]=farPair(T.pts);
-  const P=T.pts[a],Q=T.pts[b];
-  const tvx=Q[0]-P[0],tvy=Q[1]-P[1], tlen=Math.hypot(tvx,tvy), tang=Math.atan2(tvy,tvx);
-  let best=null;
-  for(let i=0;i<pool.length;i++)for(let j=0;j<pool.length;j++){
-    if(i===j)continue;
-    const p=pool[i],q=pool[j];
-    const svx=q.x-p.x,svy=q.y-p.y, slen=Math.hypot(svx,svy);
-    const scale=slen/tlen;
-    const smin=T.smin||.35, smax=T.smax||.95;
-    if(scale<smin||scale>smax) continue;         // keep the figure a sensible size
-    let ang=Math.atan2(svy,svx)-tang;
-    while(ang>Math.PI)ang-=2*Math.PI; while(ang<-Math.PI)ang+=2*Math.PI;
-    if(T.maxRot!=null && Math.abs(ang)>T.maxRot) continue;   // keep upright (heart)
+  const smin=T.smin!=null?T.smin:.35, smax=T.smax!=null?T.smax:.95, maxRot=T.maxRot!=null?T.maxRot:null;
+  const [a,b]=farPair(T.pts);const P=T.pts[a],Q=T.pts[b];
+  const tvx=Q[0]-P[0],tvy=Q[1]-P[1],tlen=Math.hypot(tvx,tvy),tang=Math.atan2(tvy,tvx);let best=null;
+  for(let i=0;i<pool.length;i++)for(let j=0;j<pool.length;j++){if(i===j)continue;
+    const p=pool[i],q=pool[j];const svx=q.x-p.x,svy=q.y-p.y,slen=Math.hypot(svx,svy);const scale=slen/tlen;
+    if(scale<smin||scale>smax)continue;
+    let ang=Math.atan2(svy,svx)-tang;while(ang>Math.PI)ang-=2*Math.PI;while(ang<-Math.PI)ang+=2*Math.PI;
+    if(maxRot!=null&&Math.abs(ang)>maxRot)continue;
     const cs=Math.cos(ang),sn=Math.sin(ang);
-    const tf=pt=>{const dx=(pt[0]-P[0]),dy=(pt[1]-P[1]);
-      return {x:p.x+scale*(cs*dx-sn*dy), y:p.y+scale*(sn*dx+cs*dy)};};
-    const used=new Set([i,j]); const assign=new Array(T.pts.length); assign[a]=i; assign[b]=j;
-    let err=0, ok=true;
-    // order remaining points by how constrained (just sequential is fine)
-    for(let k=0;k<T.pts.length;k++){
-      if(k===a||k===b)continue;
-      const target=tf(T.pts[k]); let bk=-1,bd=1e9;
-      for(let m=0;m<pool.length;m++){ if(used.has(m))continue;
-        const d=Math.hypot(pool[m].x-target.x,pool[m].y-target.y); if(d<bd){bd=d;bk=m;}}
-      if(bk<0){ok=false;break;} used.add(bk); assign[k]=bk; err+=bd;
-    }
-    if(!ok)continue;
-    err/=slen;                                    // relative to baseline
-    if(!best||err<best.err) best={err,assign:assign.slice()};
-  }
-  return best?{name:T.name,color:T.color,edges:T.edges,star:best.assign.map(i=>pool[i]),err:best.err}:null;
+    const tf=t=>{const dx=t[0]-P[0],dy=t[1]-P[1];return{x:p.x+scale*(cs*dx-sn*dy),y:p.y+scale*(sn*dx+cs*dy)};};
+    const used=new Set([i,j]);const as=new Array(T.pts.length);as[a]=i;as[b]=j;let err=0,ok=true;
+    for(let k=0;k<T.pts.length;k++){if(k===a||k===b)continue;const tg=tf(T.pts[k]);let bk=-1,bd=1e9;
+      for(let m=0;m<pool.length;m++){if(used.has(m))continue;const d=Math.hypot(pool[m].x-tg.x,pool[m].y-tg.y);if(d<bd){bd=d;bk=m;}}
+      if(bk<0){ok=false;break;}used.add(bk);as[k]=bk;err+=bd;}
+    if(!ok)continue;err/=slen;if(!best||err<best.err)best={err,as:as.slice()};}
+  return best;}
+
+/* ===================== reference sky ===================== */
+const refc=document.getElementById("ref"), rctx=refc.getContext("2d");
+function drawRef(){
+  const w=refc.parentElement.clientWidth, h=w*0.34, d=window.devicePixelRatio||1;
+  refc.width=w*d; refc.height=h*d; refc.style.height=h+"px"; rctx.setTransform(d,0,0,d,0,0);
+  const g=rctx.createLinearGradient(0,0,0,h); g.addColorStop(0,"#0c1330");g.addColorStop(1,"#060912");
+  rctx.fillStyle=g; rctx.fillRect(0,0,w,h);
+  const keys=["cas","uma","cyg"], cw=w/3;
+  keys.forEach((k,ci)=>{const T=CONS[k];
+    const padX=cw*0.16, padTop=h*0.16, figW=cw-2*padX, figH=h*0.5;
+    const map=p=>({x:ci*cw+padX+p[0]*figW, y:padTop+p[1]*figH});
+    rctx.save();rctx.globalAlpha=.12;rctx.font=Math.min(cw,h)*0.46+"px serif";rctx.textAlign="center";rctx.textBaseline="middle";
+    rctx.fillText(T.emoji, ci*cw+cw/2, h*0.42);rctx.restore();
+    rctx.strokeStyle=T.color;rctx.lineWidth=1.7;rctx.lineJoin="round";
+    T.edges.forEach(e=>{const A=map(T.pts[e[0]]),B=map(T.pts[e[1]]);rctx.beginPath();rctx.moveTo(A.x,A.y);rctx.lineTo(B.x,B.y);rctx.stroke();});
+    T.pts.forEach(p=>{const m=map(p);rctx.save();rctx.shadowBlur=8;rctx.shadowColor="#fff";rctx.fillStyle="#fff";rctx.beginPath();rctx.arc(m.x,m.y,2.5,0,7);rctx.fill();rctx.restore();});
+    rctx.fillStyle=T.color;rctx.font="600 12px -apple-system,sans-serif";rctx.textAlign="center";rctx.textBaseline="alphabetic";
+    rctx.fillText(T.short, ci*cw+cw/2, h*0.93);
+  });
 }
 
-/* ---------- generation ---------- */
+/* ===================== random sky ===================== */
+const cv=document.getElementById("sky"), ctx=cv.getContext("2d");
+const AR=0.62, N=34;
+let stars=[], dust=[], layers={}, cur="penta", pending=null, dpr=1, dim=1, heartInst=null, heartAlpha=0, busy=false;
 function rand(a,b){return a+Math.random()*(b-a);}
 function generate(){
-  stars=[]; let t=0;
-  while(stars.length<N&&t<8000){t++;
-    const p={x:rand(.07,.93),y:rand(.12,.9),b:rand(.55,1),r:rand(1.6,3.2)};
-    if(stars.every(q=>Math.hypot(q.x-p.x,q.y-p.y)>.066)) stars.push(p);}
-  dust=[]; for(let i=0;i<150;i++) dust.push({x:Math.random(),y:Math.random(),b:rand(.05,.32),r:rand(.4,1.1)});
-  pentaCount=countPentagons(stars);
-  sel=[]; found=[]; revState=[]; revealing=false; animalDim=1; draw();
+  stars=[];let t=0;
+  while(stars.length<N&&t<8000){t++;const p={x:rand(.07,.93),y:rand(.13,.9),b:rand(.55,1),r:rand(1.7,3.1)};
+    if(stars.every(q=>Math.hypot(q.x-p.x,q.y-p.y)>.064))stars.push(p);}
+  dust=[];for(let i=0;i<140;i++)dust.push({x:Math.random(),y:Math.random(),b:rand(.05,.3),r:rand(.4,1.1)});
+  layers={penta:[],cas:[],uma:[],cyg:[]}; cur="penta"; pending=null; dim=1; heartInst=null; heartAlpha=0; busy=false;
+  renderChips(); setPrompt(); draw();
 }
-
-/* ---------- sizing ---------- */
-function resize(){const w=cv.parentElement.clientWidth; dpr=window.devicePixelRatio||1;
-  cv.width=w*dpr; cv.height=w*AR*dpr; cv.style.height=(w*AR)+"px"; ctx.setTransform(dpr,0,0,dpr,0,0); draw();}
+function resize(){const w=cv.parentElement.clientWidth;dpr=window.devicePixelRatio||1;
+  cv.width=w*dpr;cv.height=w*AR*dpr;cv.style.height=(w*AR)+"px";ctx.setTransform(dpr,0,0,dpr,0,0);draw();}
 const W=()=>cv.width/dpr, H=()=>cv.height/dpr;
 const px=p=>({x:p.x*W(),y:p.y*H()});
 
-/* ---------- drawing ---------- */
 function draw(){
   const w=W(),h=H();
   const g=ctx.createRadialGradient(w*.5,h*.35,h*.1,w*.5,h*.5,h*1.1);
   g.addColorStop(0,"#0d1430");g.addColorStop(.55,"#080b1c");g.addColorStop(1,"#04050c");
-  ctx.fillStyle=g; ctx.fillRect(0,0,w,h);
-  ctx.save();ctx.globalAlpha=.06;ctx.fillStyle="#8aa0e0";
-  ctx.beginPath();ctx.ellipse(w*.5,h*.5,w*.7,h*.16,-.5,0,7);ctx.fill();ctx.restore();
-  for(const d of dust){ctx.globalAlpha=d.b;ctx.fillStyle="#cdd8ff";ctx.beginPath();ctx.arc(d.x*w,d.y*h,d.r,0,7);ctx.fill();}
+  ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
+  ctx.save();ctx.globalAlpha=.06;ctx.fillStyle="#8aa0e0";ctx.beginPath();ctx.ellipse(w*.5,h*.5,w*.7,h*.16,-.5,0,7);ctx.fill();ctx.restore();
+  for(const dd of dust){ctx.globalAlpha=dd.b;ctx.fillStyle="#cdd8ff";ctx.beginPath();ctx.arc(dd.x*w,dd.y*h,dd.r,0,7);ctx.fill();}
   ctx.globalAlpha=1;
 
-  // revealed constellations
-  found.forEach((c,ci)=>{
-    const rs=revState[ci]; if(!rs||!rs.starsOn)return;
-    if(c.heart){
-      const pts=c.star.map(px), n=pts.length, mid=(a,b)=>({x:(a.x+b.x)/2,y:(a.y+b.y)/2});
-      ctx.save(); ctx.globalAlpha=Math.max(0,Math.min(1,rs.alpha||0));
-      ctx.beginPath(); const m0=mid(pts[n-1],pts[0]); ctx.moveTo(m0.x,m0.y);
-      for(let i=0;i<n;i++){const nx=mid(pts[i],pts[(i+1)%n]); ctx.quadraticCurveTo(pts[i].x,pts[i].y,nx.x,nx.y);}
-      ctx.closePath(); ctx.fillStyle="rgba(255,110,142,.18)"; ctx.fill();
-      ctx.lineWidth=2.6; ctx.lineJoin="round"; ctx.strokeStyle=c.color;
-      ctx.shadowBlur=18; ctx.shadowColor=c.color; ctx.stroke(); ctx.restore();
-      c.star.forEach(s=>{const p=px(s);ctx.save();ctx.shadowBlur=12;ctx.shadowColor=c.color;
-        ctx.fillStyle=c.color;ctx.beginPath();ctx.arc(p.x,p.y,3,0,7);ctx.fill();ctx.restore();});
-      return;
-    }
-    ctx.save(); ctx.globalAlpha=animalDim;
-    ctx.strokeStyle=c.color; ctx.lineWidth=2; ctx.lineJoin="round"; ctx.lineCap="round";
-    c.edges.forEach((e,ei)=>{ if(ei>=rs.edges)return;
-      const A=px(c.star[e[0]]),B=px(c.star[e[1]]);
-      ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();});
-    c.star.forEach(s=>{const p=px(s);ctx.save();ctx.shadowBlur=14;ctx.shadowColor=c.color;
-      ctx.fillStyle=c.color;ctx.beginPath();ctx.arc(p.x,p.y,3.4,0,7);ctx.fill();ctx.restore();});
-    if(rs.labelOn){const cen={x:0,y:0};c.star.forEach(s=>{cen.x+=s.x;cen.y+=s.y;});
-      cen.x/=c.star.length;cen.y/=c.star.length;const lp=px(cen);
-      ctx.fillStyle=c.color;ctx.font="600 13px -apple-system,sans-serif";ctx.textAlign="center";
-      ctx.fillText(c.name, lp.x, lp.y-6);}
-    ctx.restore();
-  });
+  // drawn shapes (each layer its colour), dimmed during finale
+  LAYERS.forEach(L=>{const es=layers[L.key];if(!es||!es.length)return;
+    ctx.save();ctx.globalAlpha=dim;ctx.strokeStyle=L.color;ctx.lineWidth=L.key===cur?2.7:2;ctx.lineJoin="round";ctx.lineCap="round";
+    ctx.shadowBlur=7;ctx.shadowColor=L.color;
+    es.forEach(e=>{const A=px(stars[e.a]),B=px(stars[e.b]);ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(B.x,B.y);ctx.stroke();});
+    ctx.restore();});
 
-  // pentagon selection
-  if(sel.length){
-    let order=sel; const done=sel.length===5&&convexPosition(sel.map(i=>stars[i]));
-    if(done){const c={x:0,y:0};sel.forEach(i=>{c.x+=stars[i].x;c.y+=stars[i].y;});c.x/=5;c.y/=5;
-      order=[...sel].sort((a,b)=>Math.atan2(stars[a].y-c.y,stars[a].x-c.x)-Math.atan2(stars[b].y-c.y,stars[b].x-c.x));}
-    ctx.beginPath();order.forEach((i,k)=>{const p=px(stars[i]);k?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y);});
-    if(sel.length===5)ctx.closePath();
-    ctx.strokeStyle=done?"#EAD98A":"rgba(234,217,138,.75)";ctx.lineWidth=2.2;ctx.lineJoin="round";ctx.stroke();
-    if(done){ctx.fillStyle="rgba(234,217,138,.13)";ctx.fill();}
-  }
+  if(heartInst) drawHeart(heartInst, heartAlpha);
 
   // stars
-  for(let i=0;i<stars.length;i++){const s=stars[i],p=px(s),on=sel.includes(i);
-    ctx.save();ctx.shadowBlur=on?16:9;ctx.shadowColor=on?"#EAD98A":"rgba(200,215,255,.9)";
-    ctx.fillStyle=on?"#EAD98A":`rgba(240,245,255,${s.b})`;
-    ctx.beginPath();ctx.arc(p.x,p.y,on?s.r+2.4:s.r,0,7);ctx.fill();ctx.restore();}
+  for(let i=0;i<stars.length;i++){const s=stars[i],p=px(s),pend=(i===pending);
+    ctx.save();ctx.shadowBlur=pend?18:9;ctx.shadowColor=pend?LC[cur]:"rgba(200,215,255,.9)";
+    ctx.fillStyle=pend?LC[cur]:`rgba(240,245,255,${s.b})`;
+    ctx.beginPath();ctx.arc(p.x,p.y,pend?s.r+3:s.r,0,7);ctx.fill();ctx.restore();}
+}
+function drawHeart(f,alpha){
+  const pts=f.star.map(px),n=pts.length,mid=(a,b)=>({x:(a.x+b.x)/2,y:(a.y+b.y)/2});
+  ctx.save();ctx.globalAlpha=Math.max(0,Math.min(1,alpha));
+  ctx.beginPath();const m0=mid(pts[n-1],pts[0]);ctx.moveTo(m0.x,m0.y);
+  for(let i=0;i<n;i++){const nx=mid(pts[i],pts[(i+1)%n]);ctx.quadraticCurveTo(pts[i].x,pts[i].y,nx.x,nx.y);}
+  ctx.closePath();ctx.fillStyle="rgba(255,110,142,.20)";ctx.fill();
+  ctx.lineWidth=2.6;ctx.lineJoin="round";ctx.strokeStyle=HEART.color;ctx.shadowBlur=18;ctx.shadowColor=HEART.color;ctx.stroke();ctx.restore();
+  f.star.forEach(s=>{const p=px(s);ctx.save();ctx.globalAlpha=Math.min(1,alpha);ctx.shadowBlur=12;ctx.shadowColor=HEART.color;ctx.fillStyle=HEART.color;ctx.beginPath();ctx.arc(p.x,p.y,3,0,7);ctx.fill();ctx.restore();});
 }
 
-/* ---------- interaction ---------- */
-function pickStar(mx,my){let best=-1,bd=24;
-  for(let i=0;i<stars.length;i++){const p=px(stars[i]);const d=Math.hypot(p.x-mx,p.y-my);if(d<bd){bd=d;best=i;}}return best;}
-cv.addEventListener("click",e=>{
-  if(revealing)return;
-  const r=cv.getBoundingClientRect(); const i=pickStar(e.clientX-r.left,e.clientY-r.top); if(i<0)return;
-  const at=sel.indexOf(i);
-  if(at>=0){sel.splice(at,1);draw();setStatus("");return;}
-  if(sel.length>=5){setStatus("That's 5 — deselect one, or hit Clear.");return;}
-  sel.push(i);draw();
-  if(sel.length===5)checkShape(); else setStatus(`Pick ${5-sel.length} more.`);
-});
-function checkShape(){
-  if(convexPosition(sel.map(i=>stars[i])))
-    setStatus(`✨ A convex pentagon — and you were <b>guaranteed</b> to find one. This random sky hides <b>${pentaCount.toLocaleString()}</b> of them.`,"win");
-  else setStatus("Not convex — one star caves inward. Swap it out; there are plenty of real ones here.");
-  draw();
-}
+/* ===================== interaction ===================== */
+function layer(){return LAYERS.find(L=>L.key===cur);}
+function setPrompt(){document.getElementById("prompt").innerHTML=layer().prompt;}
 function setStatus(t,cls=""){const s=document.getElementById("status");s.innerHTML=t;s.className="status "+cls;}
+function renderChips(){const box=document.getElementById("chips");box.innerHTML="";
+  LAYERS.forEach(L=>{const b=document.createElement("button");b.className="chip"+(L.key===cur?" active":"");
+    b.innerHTML=`<span class="sw" style="background:${L.color}"></span>${L.short}`;
+    b.onclick=()=>{if(busy)return;cur=L.key;pending=null;renderChips();setPrompt();setStatus("Tap two stars to draw a line between them.");draw();};
+    box.appendChild(b);});}
+function pickStar(mx,my){let best=-1,bd=24;for(let i=0;i<stars.length;i++){const p=px(stars[i]);const d=Math.hypot(p.x-mx,p.y-my);if(d<bd){bd=d;best=i;}}return best;}
+cv.addEventListener("click",e=>{
+  if(busy)return;
+  const r=cv.getBoundingClientRect();const i=pickStar(e.clientX-r.left,e.clientY-r.top);if(i<0)return;
+  if(pending===null){pending=i;draw();setStatus("Now tap the star to connect it to.");return;}
+  if(pending===i){pending=null;draw();setStatus("");return;}
+  const es=layers[cur];
+  if(!es.some(x=>(x.a===pending&&x.b===i)||(x.a===i&&x.b===pending))) es.push({a:pending,b:i});
+  pending=null;draw();setStatus("");
+});
+document.getElementById("undo").onclick=()=>{if(busy)return;if(pending!==null){pending=null;draw();return;}layers[cur].pop();draw();};
+document.getElementById("clear").onclick=()=>{if(busy)return;layers[cur]=[];pending=null;draw();setStatus("Cleared. Tap two stars to start again.");};
+document.getElementById("newsky").onclick=()=>{if(busy)return;generate();setStatus("A fresh random sky. Tap two stars to draw a line.");};
+
+/* ===================== finale ===================== */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+document.getElementById("finale").onclick=async()=>{
+  if(busy)return;busy=true;pending=null;document.getElementById("finale").disabled=true;
+  setStatus("Some shapes you chose. Some you can&rsquo;t avoid. And one more…","heart");
+  for(let d=1;d<=10;d++){dim=1-(1-0.14)*(d/10);draw();await sleep(40);}
+  const big=stars.map(s=>({x:s.x,y:s.y})).concat(dust.map(d=>({x:d.x,y:d.y})));
+  const h=matchTemplate(HEART,big);
+  if(h){heartInst={star:h.as.map(i=>big[i])};await sleep(300);
+    for(let a=1;a<=16;a++){heartAlpha=a/16;draw();await sleep(45);}}
+  setStatus("Scatter enough stars and every shape appears — even a heart. ♡ &nbsp;<b>Welcome to the course.</b>","heart");
+};
 
-async function reveal(){
-  if(revealing)return; revealing=true; sel=[]; animalDim=1;
-  document.getElementById("reveal").disabled=true;
-  const pool=stars.map(s=>({x:s.x,y:s.y}));
-  found=TEMPLATES.map(T=>matchTemplate(T,pool)).filter(Boolean);
-  revState=found.map(()=>({starsOn:false,edges:0,labelOn:false,alpha:0}));
-  setStatus("The same random stars… watch.");
-  for(let ci=0;ci<found.length;ci++){
-    revState[ci].starsOn=true; draw(); await sleep(350);
-    for(let e=0;e<found[ci].edges.length;e++){revState[ci].edges=e+1;draw();await sleep(220);}
-    revState[ci].labelOn=true; draw(); await sleep(600);
-  }
-  // romantic finale: a heart, drawn from bright + faint stars alike
-  const bigPool=stars.map(s=>({x:s.x,y:s.y})).concat(dust.map(d=>({x:d.x,y:d.y})));
-  const h=matchTemplate(HEART,bigPool);
-  if(h){ h.heart=true; found.push(h);
-    const hi=found.length-1; revState.push({starsOn:false,edges:0,labelOn:false,alpha:0});
-    await sleep(450);
-    setStatus("And one more…");
-    for(let d=1;d<=10;d++){ animalDim=1-(1-0.14)*(d/10); draw(); await sleep(40); }  // dim the animals
-    revState[hi].starsOn=true; draw(); await sleep(500);
-    for(let a=1;a<=14;a++){ revState[hi].alpha=a/14; draw(); await sleep(45); }
-  }
-  setStatus("The queen, the bear, the swan — those the random sky handed us. This one we drew ourselves. ♡ &nbsp;Welcome to the course.","win");
-  revealing=false;
-}
-document.getElementById("reveal").onclick=reveal;
-document.getElementById("clear").onclick=()=>{if(revealing)return;sel=[];found=[];revState=[];animalDim=1;draw();setStatus("");document.getElementById("reveal").disabled=false;};
-document.getElementById("newsky").onclick=()=>{if(revealing)return;generate();document.getElementById("reveal").disabled=false;setStatus("A fresh sky. Find five stars in convex position.");};
-
-window.addEventListener("resize",resize);
-generate(); resize();
+/* ===================== boot ===================== */
+window.addEventListener("resize",()=>{drawRef();resize();});
+generate(); drawRef(); resize();
 </script>
 </body>
 </html>
