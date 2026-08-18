@@ -1,0 +1,270 @@
+% Curriculum vitae for Pei Wu.
+% This file is maintained directly in LaTeX; LyX is not required.
+\documentclass[10pt,american]{article}
+
+% Page and text setup.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper,left=0.78in,right=0.78in,top=0.72in,bottom=0.68in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{babel}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\frenchspacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1.15}
+
+% Document-wide values.
+\newcommand{\cvname}{Pei Wu}
+\newcommand{\cvyear}{2026}
+\newcommand{\ac}{\mathrm{AC}}
+\newcommand{\me}{\textbf{P. Wu}}
+\definecolor{cvaccent}{RGB}{184,0,55}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=cvaccent,
+  pdftitle={Pei Wu - Curriculum Vitae},
+  pdfauthor={Pei Wu},
+  pdfsubject={Academic curriculum vitae},
+  pdfkeywords={Pei Wu, theoretical computer science, complexity theory}
+}
+\urlstyle{same}
+
+% Running header and footer. The first page uses only the page number.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\itshape \cvname\ \textbullet\ Curriculum Vitae\ \textbullet\ \cvyear}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14pt}
+
+\fancypagestyle{firstpage}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% Reusable CV layout primitives.
+\newcolumntype{D}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\newcommand{\cvsection}[1]{%
+  \par\addvspace{1.25em}%
+  {\large\bfseries\color{cvaccent}#1}\par\nobreak
+  \vspace{2pt}\hrule height 0.8pt\nobreak\vspace{0.65em}\nobreak
+}
+
+\newcommand{\cventry}[3]{%
+  \begin{tabularx}{\linewidth}{@{}D{0.16\linewidth}Y@{}}
+    #1 & \textsc{#2}\\[-1pt]
+       & #3
+  \end{tabularx}\par\vspace{0.35em}%
+}
+
+\newcommand{\cvpublication}[4]{%
+  \begin{tabularx}{\linewidth}{@{}D{0.052\linewidth}Y@{}}
+    \textbf{[#1]} & \textbf{\textit{#2}}\\[-1pt]
+                   & #3\\[-1pt]
+                   & #4
+  \end{tabularx}\par\vspace{0.45em}%
+}
+
+\newcommand{\cvwork}[3]{%
+  \begin{minipage}{\linewidth}
+    \raggedright
+    \textbf{\textit{#1}}\\[-1pt]
+    #2%
+    \def\cvdetail{#3}%
+    \ifx\cvdetail\empty\else\\[-1pt]#3\fi
+  \end{minipage}\par\vspace{0.75em}%
+}
+
+\newcommand{\cvtalk}[3]{%
+  \begin{tabularx}{\linewidth}{@{}D{0.16\linewidth}Y@{}}
+    #1 & \textbf{\textit{\lq\lq#2\rq\rq}}\\[-1pt]
+       & #3
+  \end{tabularx}\par\vspace{0.35em}%
+}
+
+\newcommand{\cvperson}[2]{%
+  \textsc{#1}\\[-1pt]
+  #2\par\vspace{0.4em}%
+}
+
+\begin{document}
+\raggedright
+\thispagestyle{firstpage}
+
+\begin{center}
+  {\LARGE \cvname}\\[2pt]
+  {\Large Assistant Professor}\\[5pt]
+  {\large\textsc{Department of Computer Science and Engineering}}\\[1pt]
+  {\large\textsc{Pennsylvania State University}}\\[7pt]
+  \href{mailto:pei.wu@psu.edu}{pei.wu@psu.edu}
+  \quad\textbullet\quad
+  \href{https://pwu.netlify.app/}{pwu.netlify.app}
+  \quad\textbullet\quad
+  \href{https://scholar.google.co.uk/citations?user=i152hTQAAAAJ}{Google Scholar}
+\end{center}
+
+\cvsection{Academic Appointments}
+
+\cventry{2024--present}{Penn State University, University Park, Pennsylvania}{%
+  \textit{Assistant Professor}}
+
+\cventry{2023--2024}{Weizmann Institute of Science, Rehovot, Israel}{%
+  Faculty of Mathematics and Computer Science\newline
+  \textit{Senior Postdoctoral Fellow; supervisor: Thomas Vidick}}
+
+\cventry{Summer 2023}{Simons Institute for the Theory of Computing, Berkeley, California}{%
+  \textit{Research Fellow}}
+
+\cventry{2021--2023}{Institute for Advanced Study, Princeton, New Jersey}{%
+  School of Mathematics\newline
+  \textit{Postdoctoral Member; supervisor: Avi Wigderson}}
+
+\cvsection{Education}
+
+\cventry{2015--2021}{University of California, Los Angeles}{%
+  \textit{Ph.D., Computer Science}\newline
+  Thesis: \textit{Communication and Computation}; advisor: Alexander Sherstov}
+
+\cventry{2013--2015}{Dartmouth College}{%
+  \textit{M.S., Computer Science}; thesis advisor: Amit Chakrabarti}
+
+\cventry{2009--2013}{Nanjing University, China}{%
+  \textit{B.S., Computer Science and Technology}}
+
+\cvsection{Publications\hfill{\normalfont\footnotesize\itshape\color{black}Author order is alphabetical.}}
+
+\cvpublication{11}{Randomized and quantum lifting for one-way conservative NOF model}%
+  {H. Wang, \me}%
+  {The 51st International Symposium on Mathematical Foundations of Computer Science (MFCS 2026)}
+
+\cvpublication{10}{Quantum algorithms on edge lists: hiding, shuffling, and cycle finding}%
+  {A. S. Gilani, D. Wang, \me, X. Zhou}%
+  {The 53rd International Colloquium on Automata, Languages, and Programming (ICALP 2026). \textit{Also accepted as a contributed talk at TQC 2026}}
+
+\cvpublication{9}{Quantum Merlin--Arthur with an internally separable proof}%
+  {R. Bassirian, B. Fefferman, I. Leigh, K. Marwaha, \me}%
+  {The 21st Conference on the Theory of Quantum Computation, Communication and Cryptography (TQC 2026), contributed talk}
+
+\cvpublication{8}{Coherence in property testing: quantum-classical collapses and separations}%
+  {F. G. Jeronimo, N. Magrafta, J. Slote, \me}%
+  {The 28th Annual Quantum Information Processing Conference (QIP 2025)}
+
+\cvpublication{7}{Dimension-independent disentanglers from unentanglement and applications}%
+  {F. G. Jeronimo, \me}%
+  {The 39th Computational Complexity Conference (CCC 2024)}
+
+\cvpublication{6}{Pseudorandom and pseudoentangled states from subset states}%
+  {F. G. Jeronimo, N. Magrafta, \me}%
+  {The 19th Conference on the Theory of Quantum Computation, Communication and Cryptography (TQC 2024), poster}
+
+\cvpublication{5}{An optimal \lq\lq it ain't over till it's over\rq\rq\ theorem}%
+  {R. Eldan, A. Wigderson, \me}%
+  {The 55th ACM Symposium on Theory of Computing (STOC 2023)}
+
+\cvpublication{4}{The power of unentangled quantum proofs with non-negative amplitudes}%
+  {F. G. Jeronimo, \me}%
+  {The 55th ACM Symposium on Theory of Computing (STOC 2023)}
+
+\cvpublication{3}{An optimal separation of randomized and quantum query complexity}%
+  {A. A. Sherstov, A. A. Storozhenko, \me}%
+  {The 53rd ACM Symposium on Theory of Computing (STOC 2021). \textit{SIAM Journal on Computing, 52(2):525--567, 2023}}
+
+\cvpublication{2}{Near-optimal lower bounds on the threshold degree and sign-rank of $\ac^{0}$}%
+  {A. A. Sherstov, \me}%
+  {The 51st ACM Symposium on Theory of Computing (STOC 2019). \textit{Invited to appear in SIAM Journal on Computing (special issue for STOC 2019)}}
+
+\cvpublication{1}{Optimal interactive coding for insertions, deletions, and substitutions}%
+  {A. A. Sherstov, \me}%
+  {The 58th Annual Symposium on Foundations of Computer Science (FOCS 2017). \textit{IEEE Transactions on Information Theory, 65(10):5971--6000, 2019}}
+
+\cvsection{Survey and Expository Article}
+
+\cvwork{The QMA(2) universe: complexity, entanglement, and optimization}%
+  {F. G. Jeronimo, I. Leigh, \me}%
+  {\textit{Invited survey, ACM SIGACT News, 57(1):64--99, 2026}}
+
+\cvsection{Manuscripts and Preprints}
+
+\cvwork{Optimal quantum de Finetti theorems via argmax rounding}%
+  {F. G. Jeronimo, \me, H. Xu}{}
+
+\cvwork{An argmax principle for sum-of-squares relaxations on the sphere}%
+  {F. G. Jeronimo, \me, H. Xu}{}
+
+\cvwork{An optimal analysis of the product test}%
+  {J. Beckey, F. G. Jeronimo, \me}{}
+
+\cvwork{The power of unentanglement without destructive interference}%
+  {Y. Liu, \me}{}
+
+\cvsection{Advising}
+
+\cvperson{Haoyu Wang}{Ph.D. student (in progress), Penn State University}
+\cvperson{Haochen Xu}{Ph.D. student (in progress), Penn State University}
+\cvperson{John Brenton}{Undergraduate researcher, Penn State University}
+
+\newpage
+\cvsection{Teaching}
+
+\cventry{Fall 2026}{CMPSC 360}{Discrete Mathematics}
+\cventry{Spring 2026}{CMPSC 564}{Complexity of Combinatorial Problems}
+\cventry{Fall 2025}{CMPSC 464}{Theory of Computation}
+
+\cvsection{Selected Talks and Seminars}
+
+\cvtalk{Aug--Sep 2024}{Coherence in property testing: quantum-classical separations and collapses}{%
+  Center on Frontiers of Computing Studies, Peking University; Theory Seminar, Penn State University}
+
+\cvtalk{Mar 2024}{Multiple Merlins in the modern era}{%
+  Theory Lunch, Weizmann Institute of Science}
+
+\cvtalk{Apr 2023--Jan 2024}{The power of unentangled proofs with non-negative amplitudes}{%
+  Simons Institute; Weizmann Institute of Science; The University of Texas at Austin; Nanjing University; QIP 2024}
+
+\cvtalk{Jun 2023}{It ain't over till it's over}{%
+  \lq\lq Analysis and TCS,\rq\rq\ Simons Institute}
+
+\cvtalk{Sep--Nov 2022}{Random restrictions on Boolean functions with small influences}{%
+  Princeton University; Shandong University; Nanjing University; DIMACS and Rutgers University}
+
+\cvtalk{Nov 2022}{Polynomial method in communication complexity}{%
+  CS/DM Seminar, Institute for Advanced Study}
+
+\cvtalk{Oct 2021}{Recent progress on query complexity}{%
+  Two lectures, CS/DM Seminar, Institute for Advanced Study}
+
+\cvtalk{Apr 2021}{Optimal separation of randomized and quantum query complexity}{%
+  Algorithm and Complexity Seminar, University of Waterloo (online)}
+
+\cvtalk{Feb 2020}{Settling the threshold degree and sign-rank of $\ac^{0}$}{%
+  Invited plenary talk, Southern California Theory Day, University of California, Riverside}
+
+\cvsection{University Service}
+
+\cventry{2025--2026}{Department Hiring Committee}{}
+\cventry{2025}{Computer Science and Engineering Seminar Series}{Organizer}
+\cventry{2025}{Graduate Qualifying Committee}{}
+
+\cvsection{Professional Service}
+
+\textbf{Program committee:} FSTTCS 2026
+
+\vspace{0.35em}
+\textbf{Conference reviewing:} STOC/FOCS, CCC, ITCS, ICALP, STACS, QIP, TQC
+
+\vspace{0.35em}
+\textbf{Journal referee:} PRX, SICOMP, TIT, \textit{Quantum}, \textit{Algorithmica}, JCSS
+
+\end{document}
