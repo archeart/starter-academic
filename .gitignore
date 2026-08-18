@@ -3,7 +3,6 @@
 .DS_Store
 
 # Hugo
-/resources/
 public/
 .hugo_build.lock
 /modern/resources/

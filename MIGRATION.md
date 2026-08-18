@@ -1,8 +1,8 @@
 # Modern Hugo migration
 
 This file is the migration ledger for replacing the legacy Wowchemy site with a
-small modern Hugo site. The legacy implementation stays runnable until the new
-site passes every parity check.
+small modern Hugo site. The legacy implementation was retained until the new
+site passed every parity check and remains recoverable from Git history.
 
 ## Ground rules
 
@@ -87,10 +87,11 @@ internal link or missing material.
 
 ### 6. Cutover and cleanup
 
-- [ ] Review the complete new site locally.
-- [ ] Create a deploy preview and compare it with the local build.
-- [ ] Switch production to the modern site while preserving URLs.
-- [ ] Remove only confirmed Wowchemy/demo/generated leftovers.
+- [x] Review the complete new site locally.
+- [x] Deploy through the existing GitHub-to-Netlify workflow and verify the
+      public site.
+- [x] Switch production to the modern site while preserving URLs.
+- [x] Remove only confirmed Wowchemy/demo/generated leftovers.
 - [ ] Rotate and remove the ignored plaintext credential before final cleanup.
 
 Acceptance: the production site passes the same route checks; the legacy source
