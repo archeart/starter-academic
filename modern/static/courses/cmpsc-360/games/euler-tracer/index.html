@@ -49,9 +49,22 @@
   .foot{margin-top:16px;text-align:center;font-size:.82rem;color:var(--sub);
     font-style:italic;line-height:1.4;padding:0 6px}
   .goal{text-align:center;font-size:.86rem;color:var(--sub);margin:0 4px 8px}
+
+  /* ---- scan-to-play QR (in-class demo) ---- */
+  #qrscan{position:fixed;top:14px;right:14px;z-index:9999;line-height:0}
+  #qrscan img{display:block;width:112px;height:112px;border-radius:8px;
+    image-rendering:pixelated;background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.30)}
+  /* phones / small screens: hide it — students have already scanned,
+     and the lecture screen is the only place it needs to be */
+  @media (max-width:820px){ #qrscan{display:none} }
+  @media print{#qrscan{position:absolute;top:0;right:0}}
 </style>
 </head>
 <body>
+<!-- scan-to-play QR: https://pwu.netlify.app/courses/cmpsc-360/games/euler-tracer/ -->
+<div id="qrscan" title="Scan to play: https://pwu.netlify.app/courses/cmpsc-360/games/euler-tracer/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQkAAAEJAQAAAACvE+/JAAADeElEQVR42u1aQW6sOhCsxkhmZ25gLjI4Oco7RiRGkMdI2fw7BfMuYm5gdrYEU39Bsn7L7y/FGyTUi6YoVxdlhPjLeq/w1/VT8lPyn5TsIlLhsTXYpWtWnCLVPqHxItIU+EQjuey5S97OIfVQ5KettyQkS3wBpzQAbH6Nw4Up+n0CsEtXLF8eG4CzS705bK4ANEXTWxG3VgWpdh3MYnJX7G5UTMCbGL/Vm2YckLDPTDAMJbb7LvICWKx4c1hxdo3Es2soIqW1WwOGAKDDRdZ+f1jcKtgElkmGs8siududrbcs7bBB4uizKxBdkHEAenNYvQBWPzEGPg1DcpyDJqfC0DW15RwfSMI55MpMyK9bbc2y5yJ1V/nm1g6buPYUPnF2AE4B8FGkMry5XcWPoJ9QoVn3OejfUGGvMBRpcbRv+v1AWvd7t79SOrm3AG7tWSIZzN2l1dxd05sDDVtYALDas7YlKoMiycNqz8lqciYZx6B9VEUqw7FlaR9burXDBuy5g2+BBAw2Fcjdu2tchM0v+xyys/XWONY239sHmgLJAJtgGFJvJpt6c1guUESPwZZGhmuq6eclWiqgN9OXn3RRscB2eeD6Anp+O9/k4vB1r8B2Z2pGAMLDasYxJEAFzQLRrQBgw4qR+lNqYMXpGokDsOKtxDGx5w49sKEHgB7KczG1RY8PX6CQAcjSng4rxpClPV12kiVLO9gC0cXDktQ+v0aATzw2veAjpN7UJeouSb2Yw/JpZmrGwUJI6gVFClkcw6VmLsImYAzaR5QrZAcAM5OeE74hHgM9WWS7DMlxspAIm3qMAT3UlTPoMseEjwB9BPRiDpscGfQCVWS7DPppDqA3E5KLKgAYg14MQ4FkiOpCEj1g9bc8IAnn4rhbASa7feS9w584egCn7C9GU3+2KFV3PefAxRyW/qLtpWYl+l1O0E8AfEKRPqqQegAscatVwM6AFYpSmSziWlj8iQPkpcCc4SIDL78bx2sIk5yL9bvXyQ8Atu+CFQ+IyGGxoshYBCO5ABaOc0AP5fXy5XyLzMhOaWBmj3WfbJb27JKL2LJcYUOZRylvLsFk4WIOmyszQTMOW2m6W39d93+Am4yUHoA5RR1gq36VSAbFBDN789vUW1rx4bOKAyCcSgydrpOfs0N/xeWn42f7AChHcUNYfn6/+Cn5n5b8C60GV7AYWFa0AAAAAElFTkSuQmCC" width="265" height="265" alt="QR code — scan to play this game on your phone"></div>
+
 <div class="wrap">
   <h1>Trace it in one stroke</h1>
   <p class="how">Tap a dot to place your pen, then tap the connected lines to trace over them.

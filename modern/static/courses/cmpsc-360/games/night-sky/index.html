@@ -29,9 +29,22 @@
   .btn.hero{background:#FF6E8E;color:#2a0010;border-color:#FF6E8E}
   .btn:disabled{opacity:.4}
   .foot{margin-top:16px;text-align:center;font-size:.8rem;color:#6c789c;font-style:italic;line-height:1.45;padding:0 8px}
+
+  /* ---- scan-to-play QR (in-class demo) ---- */
+  #qrscan{position:fixed;top:14px;right:14px;z-index:9999;line-height:0}
+  #qrscan img{display:block;width:112px;height:112px;border-radius:8px;
+    image-rendering:pixelated;background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.30)}
+  /* phones / small screens: hide it — students have already scanned,
+     and the lecture screen is the only place it needs to be */
+  @media (max-width:820px){ #qrscan{display:none} }
+  @media print{#qrscan{position:absolute;top:0;right:0}}
 </style>
 </head>
 <body>
+<!-- scan-to-play QR: https://pwu.netlify.app/courses/cmpsc-360/games/night-sky/ -->
+<div id="qrscan" title="Scan to play: https://pwu.netlify.app/courses/cmpsc-360/games/night-sky/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPUAAAD1AQAAAACgyo7IAAACzElEQVR42u2ZPY7kNhCFPw4boDL2DdgnEdfHMqC2ONYAeyZHK7Uvws4cUhkHUOs5kDbdxIEZDAMFquShVO+HJSN+dT7f+PX5qn/V/0sdqQCmjNntDDiVIdRYBoBRtQX8ozT7S1htIdTl+oGfIRzAW8D3Mh3r/dYBzw6/wQMwby19f7+hH9fvmX5NrPHa2nyuF8w3f48YTdnPPjWEz6rilWt8bk/gdaumgPZW8L0b82293/yfEHisiY41PY25tqEvkqRiM/gpu50xaznftqEv8PnmN4jPjQrw+cd6v3WPNbWhz6MkpVB7rGqPzbX3U3ZN9A+p2OxmCDVqQ1KixjLQDD5NcrtPwc1YVbCH09XeN4Jvo5oyoEWJA6mOTjaCT6qxWGn2UoUxa2YIbeQDJCljlI5AoEVTxqghfmiSk6as3aeg2UtOxaq20z8BA9q9spsZQsVPh0g3oS8DREnEMqAZm+l9wqk0kk9t1vv1ddN7uITO6H6rMOZ28ssHxPJ96UwBWDf8zCuCb8PfDsImalQCvEQso5qZP22BWGzGSPmMfl4Z0wo/xuxmnwJGW6ix2EzUlGtsxz+cyhDofQIOf1OusbShf4drpKClECoMuP2Uwyb0xSe6Hrt0YBd/JukL5rdnI/zd0OwTWsoQiGU8SdJMPh2C2xlz7SFU89OJm8kvxUoz43E1qkaT6L1yxTfjv273GzUWKycdIQG3tMDfC/AR/nkA/q8rN1ivSN7l8Ghlvzaq9gycX/XMz9C3Mn+jNGOl3U8ZUwjVFHCzb8Y/DpCLElqk7FRG0Teiz6sx5s1fQCaFz2gSq7m+bvxdmpk/LQXAK1dTRmmnlf6d+rIooZkhaNF2rtZiK/kegIGu95dnp6vN3YMx60cj+7WzfwFTrCo+4fQzSddW9qfYBfj91sUyUHUdglsayS8FMErhfJRz3euauH+Yr/+DX/X/sf4vOQxtdzCSKFUAAAAASUVORK5CYII=" width="245" height="245" alt="QR code — scan to play this game on your phone"></div>
+
 <div class="wrap">
   <h1>A sky full of shapes</h1>
   <p class="sub">Here are three real constellations. Below is a <i>random</i> sky &mdash; connect the stars and find every one of them for yourself.</p>

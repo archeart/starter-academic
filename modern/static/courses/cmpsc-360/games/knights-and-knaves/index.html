@@ -92,9 +92,22 @@
 
   footer{ margin-top:34px; text-align:center; font-size:19px; font-weight:600; color:var(--ink); }
   footer span{ color:var(--muted); font-weight:500; font-size:16px; display:block; margin-top:4px; }
+
+  /* ---- scan-to-play QR (in-class demo) ---- */
+  #qrscan{position:fixed;top:14px;right:14px;z-index:9999;line-height:0}
+  #qrscan img{display:block;width:112px;height:112px;border-radius:8px;
+    image-rendering:pixelated;background:#fff;
+    box-shadow:0 2px 12px rgba(0,0,0,.30)}
+  /* phones / small screens: hide it — students have already scanned,
+     and the lecture screen is the only place it needs to be */
+  @media (max-width:820px){ #qrscan{display:none} }
+  @media print{#qrscan{position:absolute;top:0;right:0}}
 </style>
 </head>
 <body>
+<!-- scan-to-play QR: https://pwu.netlify.app/courses/cmpsc-360/games/knights-and-knaves/ -->
+<div id="qrscan" title="Scan to play: https://pwu.netlify.app/courses/cmpsc-360/games/knights-and-knaves/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAR0AAAEdAQAAAAAZEY7WAAAD6klEQVR42u1aQa6kNhSs17T02BlpNtmZiwT3RXKLbEaiA3/IvQb3nCOSuYG9ipGAysL/Z5ssneizQuYt4HW5XlW5hfjHa7/hX1yfRZ9F1RYlEbnhTURE+v2G37dd5L7tj/QUEZnr/bqJXBPJFVNof+6+9sbHr72+dbBkrPhnOaWFuUMeRvr8Y1u4P7uG7QBAbv8FPLkIYDAiWeLZp4eZK8Y4yDhCPQ8LmMPqClhdMQWSh4XEibnWjjfMSIvPbpu3LDy2NMW3vn0B4FUzVN5EHjid+QbYFmm25htGC6R5E+nqhQpJMjbMLo6Wngey44Es74/qhEp5ccAwKHnYsnZ9gJ+XYbUYT/ctD4DdnWjILgItzEJ4e7fSxJpZxepqZhRC8WQA0LCs+ZqhMlu9zGEz0BCODNlFWAhJ9bXSYek4V0zUyxwgubCQoIsjdDX1djzCZsfZcsUI9XFEHgyDeh623s350XEzI0ucqIwNeZmFXM1sWTPG3zsOuDgFuNhQfQT0MocFUC/GuYQsXAKAJtBzhq5ognqScBVvTs4FyhjMEnhhBAZMf3NixXR4IEuEBQCbpXR8BAazEFI3jxcJO2C0GMwBwByAcAn1DqAbkBh26RqvK7DhR/wd6jelXml3u6vYc5r7Zq707LNQybMbAZhjS2LvGxznerXKxMJ6AxpyBSwvswT6CNSL8dJxZXzrdeEBCA+0P+LZtwMm6prmqs3yC43fnTxlf6QZ+wOweOHs6w6Eng4Dzt74COhq5o1n1wSwawKGml0+AKB5F7MAbAaakAFAWbOshc0uNgQMmSVOATCzVcYRXFGzHi9iVj0XqiepKwBIhK1bj4+Ai03Q1ZDqOUN9nKirYYCr3OVLSd8Oi8HMIMmQgSnUbSRgs4uwRVoJF+pqFtLzsKzWc94BQwi6xlvEL9zb7lfsDxxoc/ryR9WhJ1noOrs4WvURyO+QX6g1J1kleFsChIfNLgJZyFCcf9VG4qPjgzmgl2EJV5RlkNbsgGzxnEIGXmZhdoUTAdYcCJHFaSpZzI/Vy5D0nG2ZptW6/DLo82BYmFDX4j4ZsqtYj+MUvXC6VrY7INsu6YHJt0hPV4Z/vQOIK0ZkmCVwBZClyABAr5oDIZKMgJIlMSyBMy9MRM1QKSfLDfMLsBlpBgYzo5V49nhV7IAwkSu+9hjSfWthZptuiX6Xrgn6veYj8VNaAJCbebrdyR164eyV8U32h6nbLMOo5/fufUu2L6Mhe7swy1bpi98/bs5e/0xLgLfLL/1vAPYHju0n1NzxhsUdv4CtHdLu8EqHNYyAfu/qdvlSzvKX8gkfa6RWa5bl889kn0X/86K/AF4rMgVrwgsiAAAAAElFTkSuQmCC" width="285" height="285" alt="QR code — scan to play this game on your phone"></div>
+
 <div class="wrap">
 
   <header>
