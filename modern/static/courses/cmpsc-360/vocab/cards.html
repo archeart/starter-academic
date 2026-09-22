@@ -322,7 +322,7 @@ const CS360_VOCAB = [
     def: 'The standard algebra of ∪, ∩ and complement: identity, domination, idempotent, complement, double complement, commutative, associative, distributive, absorption, De Morgan.',
     ex: '<i>A</i> ∪ ∅ = <i>A</i>,&nbsp;&nbsp; <i>A</i> ∩ <i>U</i> = <i>A</i><br><i>A</i> ∪ <i>U</i> = <i>U</i>,&nbsp;&nbsp; <i>A</i> ∩ ∅ = ∅<br><i>A</i> ∩ (<i>B</i> ∪ <i>C</i>) = (<i>A</i> ∩ <i>B</i>) ∪ (<i>A</i> ∩ <i>C</i>)',
     note: '<b>Duality:</b> swap ∪ ↔ ∩ and ∅ ↔ <i>U</i>, and every law on the list turns into another law on the list.',
-    see: ['de-morgan-sets', 'equivalences']
+    see: ['de-morgan-sets']
   },
 
   /* ----------------------------------------------------- L1 · Relations -- */
@@ -502,14 +502,14 @@ const CS360_VOCAB = [
     def: 'Every codomain value is hit — that is, im <i>f</i> = <i>B</i>.',
     ex: '<i>f</i>(<i>x</i>) = <i>x</i><sup>2</sup> as ℝ → ℝ is not onto (negatives unhit); as ℝ → [0, ∞) it is onto.',
     note: 'The codomain is what matters — change it and the answer changes. Note the shape: ∀ then ∃, and the order is not negotiable.',
-    see: ['injective', 'bijective', 'domain', 'quantifier-order']
+    see: ['injective', 'bijective', 'domain']
   },
   {
     id: 'bijective', term: 'Bijective', sym: 'injective + surjective', topic: 'Functions', lec: 2,
     def: 'Both injective and surjective — every codomain value is hit <b>exactly once</b>. A bijection is a perfect pairing of <i>A</i> with <i>B</i>.',
     ex: '<i>f</i>(<i>x</i>) = 3<i>x</i> + 4 as ℝ → ℝ · <i>f</i>(<i>n</i>) = <i>n</i> + 1 as ℤ → ℤ · <i>f</i>(<i>x</i>) = <i>x</i><sup>3</sup> as ℝ → ℝ.',
     note: 'For finite sets, a bijection <i>A</i> → <i>B</i> exists <b>iff</b> ∣<i>A</i>∣ = ∣<i>B</i>∣. “Counting a set” <i>means</i> building a bijection to {1,2,…,<i>n</i>}.',
-    see: ['injective', 'surjective', 'inverse-function', 'countable']
+    see: ['injective', 'surjective', 'inverse-function']
   },
   {
     id: 'inverse-function', term: 'Inverse function', sym: '<i>f</i><sup>−1</sup>(<i>b</i>) = <i>a</i> ⟺ <i>f</i>(<i>a</i>) = <i>b</i>', topic: 'Functions', lec: 2,
@@ -530,13 +530,6 @@ const CS360_VOCAB = [
     def: 'The function on <i>A</i> that returns its input unchanged. It is neutral for composition: <i>f</i> ∘ id<sub><i>A</i></sub> = <i>f</i> = id<sub><i>B</i></sub> ∘ <i>f</i>.',
     ex: 'For a bijection <i>f</i> : <i>A</i> → <i>B</i>, <i>f</i><sup>−1</sup> ∘ <i>f</i> = id<sub><i>A</i></sub>.',
     note: '', see: ['composition', 'inverse-function']
-  },
-  {
-    id: 'countable', term: 'Countably infinite · countable', sym: '∣<i>A</i>∣ = ∣ℕ∣', topic: 'Functions', lec: 2,
-    def: 'A set is <b>countably infinite</b> when there is a bijection ℕ → <i>A</i> — exactly the size of ℕ. It is <b>countable</b> when it is finite <i>or</i> countably infinite, and <b>uncountable</b> when it is infinite with no such bijection.',
-    ex: 'ℕ, ℤ and ℚ are all countably infinite. <b>No</b> bijection ℕ → ℝ exists, so ℝ is uncountable — strictly larger.',
-    note: 'Keep the two words apart: a finite set is countable but not countably infinite. One idea — <i>is there a bijection?</i> — reaches from counting a finite menu to proving there are different infinities.',
-    see: ['bijective', 'cardinality']
   },
 
   /* ------------------------------------------------------- L3 · Logic -- */
@@ -615,7 +608,7 @@ const CS360_VOCAB = [
     def: 'True exactly when <i>P</i> and <i>Q</i> have the <b>same</b> truth value. Read “<i>P</i> if and only if <i>Q</i>”.',
     ex: '“<i>n</i> is even” ⟺ “<i>n</i> = 2<i>k</i> for some <i>k</i> ∈ ℤ”. Every definition is secretly a biconditional.',
     note: '<i>P</i> ⟺ <i>Q</i> is (<i>P</i> ⟹ <i>Q</i>) ∧ (<i>Q</i> ⟹ <i>P</i>) — which is why an iff-proof is <b>two</b> proofs, and skipping one direction skips half the theorem.',
-    see: ['conditional', 'equivalences', 'five-connectives']
+    see: ['conditional', 'five-connectives']
   },
   {
     id: 'truth-table', term: 'Truth table', sym: '2<sup><i>n</i></sup> rows for <i>n</i> statements', topic: 'Logic', lec: 3,
@@ -629,69 +622,48 @@ const CS360_VOCAB = [
     def: 'Two statements are logically equivalent when they have the same truth value in <b>every</b> row of the truth table — identical tables.',
     ex: '¬(¬<i>P</i>) ≡ <i>P</i>&nbsp;&nbsp;and&nbsp;&nbsp;(<i>P</i> ⟹ <i>Q</i>) ≡ (¬<i>P</i> ∨ <i>Q</i>) — the two to know by tonight.',
     note: 'Written ≡ rather than =, so that “equal” stays reserved for objects, not sentences. (Hammack writes =.)',
-    see: ['equivalences', 'truth-table', 'de-morgan-logic']
+    see: ['truth-table', 'de-morgan-logic']
   },
   {
     id: 'de-morgan-logic', term: 'De Morgan’s laws (logic)', sym: '¬(<i>P</i> ∧ <i>Q</i>) ≡ ¬<i>P</i> ∨ ¬<i>Q</i>', topic: 'Logic', lec: 3,
     def: 'Negation turns ∧ into ∨ and ∨ into ∧ — for any number of them, not just two. Also ¬(<i>P</i> ∨ <i>Q</i>) ≡ ¬<i>P</i> ∧ ¬<i>Q</i>.',
     ex: '“I don’t drink coffee <i>or</i> tea” — not <i>at least one</i> of them, but <i>neither</i>: ¬(<i>C</i> ∨ <i>T</i>) ≡ ¬<i>C</i> ∧ ¬<i>T</i>.<br>“Grades, sleep, a social life — you cannot have all three”: ¬(<i>G</i> ∧ <i>S</i> ∧ <i>L</i>) ≡ ¬<i>G</i> ∨ ¬<i>S</i> ∨ ¬<i>L</i> — at least one of the three is missing.',
     note: 'Notice what the second one does <i>not</i> tell you: something gives, but never which. And it is the <b>same law</b> as the set identity from Lecture 1 — “<i>x</i> ∈ <i>A</i> ∩ <i>B</i>” <i>is</i> “(<i>x</i> ∈ <i>A</i>) ∧ (<i>x</i> ∈ <i>B</i>)”. A third costume, ∀/∃, arrives in Part B.',
-    see: ['de-morgan-sets', 'negating-quantifiers', 'equivalences']
+    see: ['de-morgan-sets', 'negating-quantifiers']
   },
   {
     id: 'double-negation', term: 'Double negation', sym: '¬(¬<i>P</i>) ≡ <i>P</i>', topic: 'Logic', lec: 3,
     def: 'Negating twice returns the original statement.',
     ex: '',
-    note: '', see: ['negation', 'equivalences']
+    note: '', see: ['negation']
   },
   {
     id: 'contrapositive', term: 'Contrapositive', sym: '¬<i>Q</i> ⟹ ¬<i>P</i>', topic: 'Logic', lec: 3,
     def: 'The contrapositive of <i>P</i> ⟹ <i>Q</i>. It is <b>logically equivalent</b> to the original.',
     ex: 'From “if <i>n</i> is divisible by 4, then <i>n</i> is even” (true): “if <i>n</i> is odd, then <i>n</i> is not divisible by 4” — also true.',
     note: 'A conditional is equivalent to its contrapositive and to nothing else here. That is a licence: prove ¬<i>Q</i> ⟹ ¬<i>P</i> whenever it is easier. It is the whole content of proof by contrapositive.',
-    see: ['converse', 'inverse-conditional', 'conditional', 'two-pairs']
+    see: ['converse', 'inverse-conditional', 'conditional']
   },
   {
     id: 'converse', term: 'Converse', sym: '<i>Q</i> ⟹ <i>P</i>', topic: 'Logic', lec: 3,
     def: 'The conditional with hypothesis and conclusion swapped. A <b>different statement</b> — not equivalent to the original.',
     ex: 'From “if <i>n</i> is divisible by 4, then <i>n</i> is even” (true): “if <i>n</i> is even, then <i>n</i> is divisible by 4” — <b>false</b>, take <i>n</i> = 6.',
     note: 'Half the wrong proofs in a term are someone proving the converse and not noticing.',
-    see: ['contrapositive', 'inverse-conditional', 'two-pairs', 'necessary-sufficient']
+    see: ['contrapositive', 'inverse-conditional', 'necessary-sufficient']
   },
   {
     id: 'inverse-conditional', term: 'Inverse (of a conditional)', sym: '¬<i>P</i> ⟹ ¬<i>Q</i>', topic: 'Logic', lec: 3,
     def: 'The conditional with both parts negated. Like the converse, not equivalent to the original.',
     ex: 'From “if <i>n</i> is divisible by 4, then <i>n</i> is even”: “if <i>n</i> is not divisible by 4, then <i>n</i> is odd” — <b>false</b>, and <i>n</i> = 6 again.',
     note: 'Do not confuse this with the inverse of a relation or of a function.',
-    see: ['converse', 'contrapositive', 'two-pairs']
-  },
-  {
-    id: 'two-pairs', term: 'Two pairs, not four statements', sym: '', topic: 'Logic', lec: 3,
-    def: 'Of the conditional and its three rearrangements, only two are distinct: <i>P</i> ⟹ <i>Q</i> ≡ its contrapositive, and the converse ≡ the inverse.',
-    ex: 'In the truth table, columns for <i>P</i> ⟹ <i>Q</i> and ¬<i>Q</i> ⟹ ¬<i>P</i> agree in every row; so do the columns for <i>Q</i> ⟹ <i>P</i> and ¬<i>P</i> ⟹ ¬<i>Q</i>.',
-    note: 'Which is why one counterexample was always going to kill both of the false ones at once — <i>n</i> = 6 disposes of the converse and the inverse together.',
-    see: ['contrapositive', 'converse', 'inverse-conditional']
+    see: ['converse', 'contrapositive']
   },
   {
     id: 'negated-conditional', term: 'Negated conditional', sym: '¬(<i>P</i> ⟹ <i>Q</i>) ≡ <i>P</i> ∧ ¬<i>Q</i>', topic: 'Logic', lec: 3,
     def: 'To deny “if <i>P</i> then <i>Q</i>” you must produce a case where <i>P</i> holds <b>and</b> <i>Q</i> fails.',
     ex: '<i>P</i> ⟹ <i>Q</i> is false in exactly one row, so its negation is true in exactly that row.',
     note: 'This is the shape a proof by contradiction assumes, and the shape a counterexample must have.',
-    see: ['conditional', 'counterexample', 'equivalences']
-  },
-  {
-    id: 'equivalences', term: 'The working equivalences', sym: '', topic: 'Logic', lec: 3,
-    def: 'The legal moves — rewrite either side as the other, anywhere, unchanged meaning: double negation · De Morgan · conditional as “or” (<i>P</i> ⟹ <i>Q</i> ≡ ¬<i>P</i> ∨ <i>Q</i>) · contrapositive · negated conditional · biconditional as two conditionals · distributive · commutative.',
-    ex: '<i>P</i> ∧ (<i>Q</i> ∨ <i>R</i>) ≡ (<i>P</i> ∧ <i>Q</i>) ∨ (<i>P</i> ∧ <i>R</i>),&nbsp;&nbsp; <i>P</i> ∨ (<i>Q</i> ∧ <i>R</i>) ≡ (<i>P</i> ∨ <i>Q</i>) ∧ (<i>P</i> ∨ <i>R</i>).',
-    note: 'Nothing here is convention — verify any of them by writing both truth tables and comparing. Two moves are enough to unpack a sentence nobody can read by eye: ¬(<i>L</i> ⟹ (<i>U</i> ∨ ¬<i>A</i>)) ≡ <i>L</i> ∧ ¬<i>U</i> ∧ <i>A</i>.',
-    see: ['logical-equivalence', 'de-morgan-logic', 'set-laws']
-  },
-  {
-    id: 'validity', term: 'Valid vs. true', sym: '', topic: 'Logic', lec: 3,
-    def: 'An argument can be checked by its <b>shape</b>, with the content stripped out. A <b>valid</b> argument combines its premises correctly; whether the conclusion is <b>true</b> also depends on whether the premises were.',
-    ex: '“Circle <i>X</i> has radius 3” plus “a circle of radius <i>r</i> has area π<i>r</i><sup>2</sup>” gives “its area is 9π”. Had the radius really been 4, the conclusion would be false and the argument still valid.',
-    note: 'Aristotle’s move, c. 350 BC: “all <i>A</i> are <i>B</i>; all <i>B</i> are <i>C</i>; therefore all <i>A</i> are <i>C</i>” is valid whatever <i>A</i>, <i>B</i>, <i>C</i> stand for — visibly valid <i>without knowing</i> what they stand for. A proof needs true premises <b>and</b> valid steps.',
-    see: ['logical-equivalence', 'conditional']
+    see: ['conditional', 'counterexample']
   },
 
   /* ------------------------------------------------- L3 · Quantifiers -- */
@@ -700,35 +672,21 @@ const CS360_VOCAB = [
     def: '∀ stands for “for all”, “for every”, “for each”; ∃ for “there exists a”, “there is a”. ∀<i>x</i> ∈ <i>X</i>, <i>P</i>(<i>x</i>) says <i>P</i> holds at <b>every</b> <i>x</i> in <i>X</i>; ∃<i>x</i> ∈ <i>X</i>, <i>P</i>(<i>x</i>) says it holds at <b>at least one</b>.',
     ex: '∀<i>x</i> ∈ ℝ, ∃<i>y</i> ∈ ℝ, <i>y</i><sup>3</sup> = <i>x</i> — every real has a real cube root (true). ∃<i>n</i> ∈ ℤ, <i>n</i><sup>2</sup> = 2 (false).',
     note: '∀ is an infinitely long ∧; ∃ is an infinitely long ∨ — packed into finitely many symbols. <b>Always name the set:</b> “∃<i>x</i>, <i>x</i><sup>2</sup> = −1” is false over ℝ and true over ℂ — same sentence, different domain, opposite truth value. A quantifier without a domain is not yet a statement.',
-    see: ['quantifier-order', 'negating-quantifiers', 'open-sentence']
-  },
-  {
-    id: 'quantifier-order', term: 'Quantifier order', sym: '∀∃ ≠ ∃∀', topic: 'Quantifiers', lec: 3,
-    def: 'A variable quantified <b>later</b> may depend on one quantified <b>earlier</b> — never the reverse. Reading left to right is reading the order of choice.',
-    ex: '∀<i>x</i> ∈ ℝ, ∃<i>y</i> ∈ ℝ, <i>y</i><sup>3</sup> = <i>x</i> is <b>true</b> (take <i>y</i> = ∛<i>x</i>). ∃<i>y</i> ∈ ℝ, ∀<i>x</i> ∈ ℝ, <i>y</i><sup>3</sup> = <i>x</i> is <b>false</b> — it claims one number whose cube is every real at once.',
-    note: 'Same three symbols, opposite truth values, only the order changed. “Surjective” is a ∀∃ definition — swap it and you have changed the definition.',
-    see: ['quantifiers', 'surjective']
+    see: ['negating-quantifiers', 'open-sentence']
   },
   {
     id: 'negating-quantifiers', term: 'Negating a quantified statement', sym: '¬(∀<i>x</i>, <i>P</i>(<i>x</i>)) ≡ ∃<i>x</i>, ¬<i>P</i>(<i>x</i>)', topic: 'Quantifiers', lec: 3,
     def: 'Negation swaps the quantifiers: also ¬(∃<i>x</i> ∈ <i>X</i>, <i>P</i>(<i>x</i>)) ≡ ∀<i>x</i> ∈ <i>X</i>, ¬<i>P</i>(<i>x</i>).',
     ex: '<i>R</i>: ∀<i>x</i> ∈ ℝ, <i>x</i><sup>2</sup> ≥ 0. Then ¬<i>R</i>: ∃<i>x</i> ∈ ℝ, <i>x</i><sup>2</sup> &lt; 0.',
     note: '<b>De Morgan for the third time.</b> ∀ is a long ∧ and ∃ is a long ∨, so negation trades one for the other exactly as it does for ∧/∨ and for ∩/∪. One law, three costumes.',
-    see: ['negating-mechanically', 'de-morgan-logic', 'de-morgan-sets']
-  },
-  {
-    id: 'negating-mechanically', term: 'Negating, mechanically', sym: '', topic: 'Quantifiers', lec: 3,
-    def: 'Push ¬ inward: every ∀ becomes ∃, every ∃ becomes ∀, the innermost predicate is negated last, and along the way ¬(<i>P</i> ⟹ <i>Q</i>) ≡ <i>P</i> ∧ ¬<i>Q</i>.',
-    ex: '¬(∀<i>x</i> ∈ ℤ, (<i>x</i> odd) ⟹ (<i>x</i><sup>2</sup> odd)) ≡ ∃<i>x</i> ∈ ℤ, (<i>x</i> odd) ∧ (<i>x</i><sup>2</sup> even).',
-    note: 'The negation of a ∀-statement is <b>one object, with its properties spelled out</b>. That is why disproving a claim means exhibiting a single counterexample — and it says in advance exactly what that counterexample must satisfy.',
-    see: ['negating-quantifiers', 'counterexample', 'negated-conditional']
+    see: ['de-morgan-logic', 'de-morgan-sets']
   },
   {
     id: 'counterexample', term: 'Counterexample', sym: '∃<i>x</i>, ¬<i>P</i>(<i>x</i>)', topic: 'Quantifiers', lec: 3,
     def: 'A single object witnessing that a ∀-statement fails. Producing one <i>is</i> the disproof.',
     ex: 'The negation of “every prime is odd” is “some prime is not odd” — and <i>p</i> = 2 supplies it.',
     note: 'The negation tells you in advance exactly what the counterexample must satisfy.',
-    see: ['negating-mechanically', 'negating-quantifiers']
+    see: ['negating-quantifiers']
   }
 
 ];

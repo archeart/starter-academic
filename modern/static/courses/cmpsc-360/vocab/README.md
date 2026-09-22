@@ -1,14 +1,14 @@
 # CMPSC 360 — vocabulary pages
 
 Two standalone pages built from `beamer/lec1.tex`, `lec2.tex`, `lec3.tex`.
-80 terms across Sets, Relations, Equivalence, Order, Functions, Logic and
+74 terms across Sets, Relations, Equivalence, Order, Functions, Logic and
 Quantifiers. Last checked against the decks 2026-09-12.
 
 | file | what it is |
 |---|---|
 | `glossary.html` | the dictionary — search, filter by topic, examples, gotchas, cross-links |
 | `cards.html` | flashcards — term on the front, click reveals the definition |
-| `vocab.js` | **the only file you edit.** All 80 entries live here |
+| `vocab.js` | **the only file you edit.** All 74 entries live here |
 | `sync.mjs` | copies `vocab.js` into both HTML pages |
 
 ## Putting them on your site
