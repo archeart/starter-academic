@@ -30,6 +30,11 @@ share = false
 </ul>
 </section>
 
+<section class="dm-vocabulary">
+<h2>Vocabulary <span class="dm-lecture-label">Lectures 1–3</span></h2>
+<p>Review the definitions from class with <a href="/courses/cmpsc-360/vocab/cards.html">vocabulary flashcards</a>, or browse the <a href="/courses/cmpsc-360/vocab/glossary.html">searchable glossary</a> for examples and related terms.</p>
+</section>
+
 <section class="dm-welcome-games">
 <h2>Welcome games <span class="dm-lecture-label">Lecture 1</span></h2>
 <ol class="dm-game-list">
