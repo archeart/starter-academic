@@ -35,6 +35,11 @@ share = false
 <p>Review the definitions from class with <a href="/courses/cmpsc-360/vocab/cards.html">vocabulary flashcards</a>, or browse the <a href="/courses/cmpsc-360/vocab/glossary.html">searchable glossary</a> for examples and related terms.</p>
 </section>
 
+<section class="dm-proof-review">
+<h2>Proofs review</h2>
+<p>The <a href="/courses/cmpsc-360/review-on-proofs/">Review on Proofs</a> covers proof by contrapositive, contradiction, induction, and strong induction, with worked examples and proofs you can reveal as you study.</p>
+</section>
+
 <section class="dm-welcome-games">
 <h2>Welcome games <span class="dm-lecture-label">Lecture 1</span></h2>
 <ol class="dm-game-list">
